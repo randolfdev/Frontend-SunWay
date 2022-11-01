@@ -121,9 +121,10 @@ export default function Clientes() {
       <Navbar filterValue={filterValue} handleFilterValue={handleFilterValue} handleSearchPress={handleSearchPress} handleShowQueryState={handleShowQueryState} />
       <div className="ClientesTable">
         <Paper className="TableBorder" sx={{ width: "100%", overflow: "hidden" }} elevation={10}>
-          <TableContainer sx={{ maxHeight: 7000 }} >
+          <TableContainer sx={{ maxHeight: 7000 }}  >
             <Table stickyHeader aria-label="sticky table" >
-              <TableHead>
+              <TableHead sx={{ "& .MuiTableCell-head": { backgroundColor: "rgb(29 78 216)", color: "white" }}}
+              >
                 <TableRow>
                   {columns.map((column) => (
                     <TableCell
