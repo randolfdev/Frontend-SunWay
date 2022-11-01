@@ -1,0 +1,188 @@
+.ConsultasGrid {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 23.5% 23.5% 23.5% 23.5%;
+    grid-template-rows: 27% 27% 27% 27%;
+    min-height: 100%;
+    width: 90%;
+    margin-top: 2%;
+    gap: 2%;
+
+}
+
+.ConsultasWrapper {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.ConsultaItemId {
+    position: relative;
+    float: left;
+    left: 10%;
+    color: white;
+    background-color: rgb(29 78 216);
+    font-size: 12.5px;
+    top: 3px;
+    width: 15%;
+    border-radius: 9999px;
+}
+
+.ConsultaCorpo {
+    position: relative;
+    height: 100%;
+    text-align: left;
+    list-style-type: none;
+    margin-left: 15%;
+    top: -10%;
+    font-size: 0.85em;
+
+}
+
+.ConsultaItem {
+    display: inline-grid;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 7%;
+    border-width: 2px;
+
+}
+
+.ConsultaItemHeader {
+    position: relative;
+    display: inline;
+    top: 15%;
+    text-align: center;
+    height: 20%;
+    padding-bottom: 36px;
+    margin-bottom: 10px;
+}
+
+.ConsultaItemHeader:after {
+    margin-top: 35px;
+    margin-left: -71%;
+    content: '';
+    width: 90%;
+    background-color: #DCE0F1;
+    padding: 0.25px;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+.NavbarConsultas {
+    right: 0;
+    background-color: #F6F7FA;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    padding-bottom: 5px;
+    align-items: baseline;
+    margin-top: 5px;
+}
+
+.NavbarConsultasToolbar {
+    justify-content: right;
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    height: 100%;
+}
+
+.NavbarConsultasToolbar .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+    position: relative;
+    right: 20%;
+    align-self: flex-end;
+    width: 40%;
+    text-align: left;
+    color: rgb(29 78 216);
+    border-radius: 9999px;
+    height: 42px;
+    /* --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); */
+    /* --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color); */
+    /* box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); */
+}
+
+.MuiFormControl-root {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    height: 100%;
+}
+
+#FiltroConsultas {
+    width: 350px;
+}
+
+.NavbarConsultas strong {
+    color: rgb(29 78 216);
+    font-size: x-large;
+    text-align: left;
+    align-self: baseline;
+}
+
+.NavbarConsultasSearch {
+    display: 'inline-flex';
+    float: left;
+    flex-direction: 'row';
+    justify-content: space-between;
+    height: 90%;
+    width: 30%;
+}
+
+.FilterBar {
+    position: relative;
+    width: 30px;
+}
+
+#SearchConsultas {
+    position: relative;
+}
+
+.SearchBar fieldset {
+    border-radius: 9999px;
+}
+
+.SearchButton {
+    position: relative;
+    left: -40px;
+    top: 5.575px;
+    background-color: rgb(29 78 216)!important;
+}
+
+.SearchButton:hover {
+    background-color: rgb(59 130 246);
+}
+
+.button-center {
+    text-align: center;
+}
+
+.inputRouded {
+    border-radius: 10px;
+}
+
+.ChartIcon {
+    position: relative;
+    left: 130px;
+}
+
+.QueryFormatul {
+    font-size: smaller;
+    margin-bottom: 6px;
+}
+
+.QueryFormatli {
+    position: relative;
+    right: 20px;
+}
+
+.QueryIcon {
+    margin-right: 5px;
+}
+
+span {
+    position: relative;
+    right: 25px;
+    font-weight: bold;
+    color: rgb(29 78 216)
+}

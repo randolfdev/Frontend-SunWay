@@ -1,0 +1,121 @@
+.Sidebar {
+    position: sticky;
+    height: 100%;
+    width: 250px;
+    
+    /* background-image: linear-gradient(#DFE3FF, #F6F7FA); */
+    background-color: #F6F7FA;
+    margin-right: 50px;
+    overflow: hidden;
+    
+}
+.profilePic {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+.SidebarHeader {
+    display: flex;
+    height: 7%;
+    margin: 5%;
+}
+.SidebarHeaderLabel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+.SidebarList {
+    margin-top: 15px;
+    height: 100%;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+.SidebarList .row {
+    width: 100%;
+    height: 50px;
+    list-style-type: none;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+}
+.SidebarList :hover {
+    cursor: pointer;
+    background-color: #DFE3FF;
+}
+
+.SidebarList #active {
+    background-color: #DFE3FF;
+    border-radius: 9999px;
+}
+
+.row #icon {
+    align-items: left;
+    justify-content: left;
+    display: flex;
+    flex: 30%;
+}
+.row #title { 
+    flex: 70%;
+}
+
+.SidebarList li:last-child:before  {
+    /* border-top: solid 1px #D7D6F6;
+    padding-top: 10px; */
+  margin-top: -70px;
+  margin-left: -10%; 
+  content: '';
+  width: 70%;
+  background-color: #DCE0F1;
+  padding: 0.25px;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+.SidebarList li:last-child  {
+    /* border-top: solid 1px #D7D6F6;
+    padding-top: 10px; */
+  margin-top: 25px; 
+}
+
+.CompanyName {
+    font-size: 4mm;
+    text-align: left;
+    margin-left: 15%;
+    margin-top: 5px;
+    color: rgb(29 78 216);
+    font-weight: 700;
+}
+
+.PersonName {  
+    font-size: 3mm;
+    text-align: left;
+    margin-left: 15%;
+    top: 10px;
+    color: rgb(29 78 216);
+    font-weight: 500;
+}
+
+.profilePic {
+    width: 40px;
+    height: 40px;
+    margin-top: 4px;
+}
+
+#Icon {
+    margin-left: 10px;
+    color: rgb(29 78 216);
+}
+
+#title {
+    color: rgb(29 78 216);
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
