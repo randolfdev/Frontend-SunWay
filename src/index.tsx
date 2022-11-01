@@ -10,6 +10,7 @@ import Dashboard from "./components/Consultas/Consultas";
 import Layout from "./layout/Layout";
 import Consultas from "./components/Consultas/Consultas";
 import Clientes from "./components/Clientes/Clientes";
+import Relatorios from "./components/Relatorios/Relatorios";
 import Login from "./components/Login/Login";
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "Clientes",
         element: <Clientes />,
+      },
+      {
+        path: "Relatorios",
+        element: <Relatorios />,
       }
     ],
   },
