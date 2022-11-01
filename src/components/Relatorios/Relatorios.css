@@ -1,4 +1,4 @@
-.RelatoriosGrid {
+.TableContainer {
     display: grid;
     grid-auto-rows: 1fr;
     grid-template-columns: 23.5% 23.5% 23.5% 23.5%;
@@ -16,7 +16,7 @@
     width: 100%;
 }
 
-.ClienteItemId {
+.RelatorioItemId {
     position: relative;
     float: left;
     left: 10%;
@@ -28,7 +28,7 @@
     border-radius: 9999px;
 }
 
-.ClienteCorpo {
+.RelatorioCorpo {
     position: relative;
     height: 100%;
     text-align: left;
@@ -39,7 +39,7 @@
 
 }
 
-.ClienteItem {
+.RelatorioItem {
     display: inline-grid;
     background-color: white;
     width: 100%;
@@ -49,7 +49,7 @@
 
 }
 
-.ClienteItemHeader {
+.RelatorioItemHeader {
     position: relative;
     display: inline;
     top: 15%;
@@ -59,10 +59,10 @@
     margin-bottom: 10px;
 }
 
-.ClienteItemHeader:after {
+.RelatorioItemHeader:after {
     margin-top: 35px;
     margin-left: -71%;
-    content: '';
+    content: "";
     width: 90%;
     background-color: #DCE0F1;
     padding: 0.25px;
@@ -121,9 +121,9 @@
 }
 
 .NavbarRelatoriosSearch {
-    display: 'inline-flex';
+    display: "inline-flex";
     float: left;
-    flex-direction: 'row';
+    flex-direction: "row";
     justify-content: space-between;
     height: 90%;
     width: 30%;
