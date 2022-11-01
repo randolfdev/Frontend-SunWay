@@ -46,7 +46,13 @@
     height: 100%;
     border-radius: 7%;
     border-width: 2px;
+}
 
+.RelatorioTable {
+    position: relative;
+    width: 95%; 
+    margin-top: 2%;
+    border-radius: 100px;
 }
 
 .RelatorioItemHeader {

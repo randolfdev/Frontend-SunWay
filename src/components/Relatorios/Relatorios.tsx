@@ -96,7 +96,7 @@ const rows = [
 export default function Relatorios() {
 
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(7);
 
 
   const [showQuery, setShowQuery] = useState<string>("");
@@ -131,7 +131,7 @@ export default function Relatorios() {
     <div className="RelatoriosWrapper">
       <Navbar filterValue={filterValue} handleFilterValue={handleFilterValue} handleSearchPress={handleSearchPress} handleShowQueryState={handleShowQueryState} />
       <div className="RelatorioTable">
-        <Paper sx={{ width: "100%", overflow: "hidden" }}>
+        <Paper sx={{ width: "100%", overflow: "hidden" }} elevation={10}>
           <TableContainer sx={{ maxHeight: 600 }}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
