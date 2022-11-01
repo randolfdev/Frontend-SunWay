@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useStateContext } from "./contexts/ContextProvider";
 import "./App.css";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 import Layout from "./layout/Layout";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Sidebar from "./layout/Sidebar/Sidebar";

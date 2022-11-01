@@ -37,7 +37,6 @@ export default function Login(props: any): JSX.Element {
   const handleButtonInput = () => {
     if (Users[0].Login === LoginText && Users[0].Password === Password ) {
       navigate("/Consultas");
-      alert("teste");
     }
   };
 
