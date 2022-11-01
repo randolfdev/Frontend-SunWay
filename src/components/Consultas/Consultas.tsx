@@ -1,5 +1,5 @@
 import React, { EventHandler, MouseEventHandler, useState } from "react";
-import Logout from "../Logout";
+import Logout from "../Login/Logout";
 import ConsultaItem from "./ConsultaItem";
 import Navbar from "./Navbar";
 import { SelectChangeEvent } from "@mui/material";

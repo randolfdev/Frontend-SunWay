@@ -9,7 +9,7 @@ import { ContextProvider } from "./contexts/ContextProvider";
 import Dashboard from "./components/Consultas/Consultas";
 import Layout from "./layout/Layout";
 import Consultas from "./components/Consultas/Consultas";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 
 const router = createBrowserRouter([
   {
