@@ -20,22 +20,27 @@ const theme = createTheme({
 });
 
 interface NavbarProps {
+  filterValue:number
+  handleFilterValue:(e: SelectChangeEvent<number>) => void
   handleSearchPress:(e: any ) => void
   handleShowQueryState:(e: any ) => void
 }
 
 
 
-export default function Navbar({handleSearchPress, handleShowQueryState}:NavbarProps) {
+export default function Navbar({filterValue, handleFilterValue, handleSearchPress, handleShowQueryState}:NavbarProps) {
   const notificationIcon = true;
 
   function criarExtracao(): void {
+    alert(filterValue);
     alert(handleShowQueryState);
     alert(handleSearchPress);
+    alert(handleFilterValue);
 
   }
 
   const [search, setSearch] = useState <string | null>(null);
+  console.log(filterValue);
   return (
     <div className="NavbarClientes">
       <strong>Clientes</strong>
@@ -43,6 +48,26 @@ export default function Navbar({handleSearchPress, handleShowQueryState}:NavbarP
         {/* <FormControl className="NavbarClientesSearch"> */}
         {/* <InputLabel id="demo-simple-select-helper-label">Filtrar</InputLabel> */}
 
+        <Box
+          display="flex"
+          justifyContent="right"
+          alignItems="center"
+        >
+          <Select id="FiltroClientes"
+            value={filterValue}
+            // label="Filtrar..."      
+            displayEmpty
+            onChange={handleFilterValue}
+            autoWidth={true}
+            className="FilterBar"
+          >
+            <MenuItem value={0}>Todos</MenuItem>
+            <MenuItem value={7}>Últimos 7 dias</MenuItem>
+            <MenuItem value={30}>Últimos 30 dias</MenuItem>
+            <MenuItem value={180}>Últimos 6 meses</MenuItem>
+            <MenuItem value={365}>Último ano</MenuItem>
+          </Select>
+        </Box>
         <TextField className="SearchBar" id="SearchClientes" variant="outlined" value = {search}
           onChange={handleShowQueryState}
         ></TextField>

@@ -16,6 +16,17 @@
     width: 100%;
 }
 
+.ClientesTable {
+    position: relative;
+    width: 95%; 
+    margin-top: 2%;
+    border-radius: 100px;
+}
+
+.TableBorder fieldset {
+    border-radius: 999px;
+}
+
 .ClienteItemId {
     position: relative;
     float: left;
@@ -46,7 +57,6 @@
     height: 100%;
     border-radius: 7%;
     border-width: 2px;
-
 }
 
 .ClienteItemHeader {
