@@ -17,20 +17,23 @@ export default function ConsultaModal() {
   return (
     <div className="ConsultaModal">
       <div className="ConsultaModalWrapper">
+        <b id="NovaConsultaTitle">Criar nova consulta</b>
         <FormControl className="ConsultaForm">
-          <TextField label="Executor" className="ExecutorInput">
+          <div className="ConsultaFormBody">
+            <TextField label="Executor" className="ExecutorInput">
 
-          </TextField>
-          <LocalizationProvider dateAdapter={AdapterMoment}>
-            <DesktopDatePicker
-              label="Date desktop"
-              inputFormat="MM/DD/YYYY"
-              value={data}
-              className="DataInput"
-              onChange={handleChange}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </LocalizationProvider>
+            </TextField>
+            <LocalizationProvider dateAdapter={AdapterMoment}>
+              <DesktopDatePicker
+                label="Date desktop"
+                inputFormat="MM/DD/YYYY"
+                value={data}
+                className="DataInput"
+                onChange={handleChange}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+          </div>
           <button className="bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full">Criar consulta</button>
         </FormControl>
         

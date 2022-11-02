@@ -4,17 +4,6 @@ import ConsultaItem from "./ConsultaItem";
 import Navbar from "./Navbar";
 import { SelectChangeEvent } from "@mui/material";
 
-//O PLANO:
-//Navbar com pesquisa, filtro e nova extrção
-//div grid com as Consultas
-//componente de item de Consultas
-
-// interface dashboardProps {
-//   user: string,
-//   // logout: MouseEventHandler
-// }
-
-
 export default function Consultas() {
   
   const [showQuery, setShowQuery] = useState<string>("");
