@@ -103,7 +103,7 @@
     /* box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); */
 }
 
-.MuiFormControl-root {
+.SearchBar.MuiFormControl-root {
     display: inline-flex !important;
     flex-direction: row !important;
     height: 100%;
@@ -185,4 +185,43 @@ span {
     right: 25px;
     font-weight: bold;
     color: rgb(29 78 216)
+}
+
+.ConsultaModal {
+    display: flex;
+    background-color: #F6F7FA;
+    position: absolute;
+    left: 30%;
+    top: 10%;
+    width: 40%;
+    height: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3%;
+}
+
+.ConsultaModalWrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: #DFE3FF;
+    height: 80%;
+    width: 60%;
+}
+
+.MuiFormControl-root.css-1nrlq1o-MuiFormControl-root.ConsultaForm {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.ExecutorInput {
+    max-height: 60px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.DataInput{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-height: 60px
 }
