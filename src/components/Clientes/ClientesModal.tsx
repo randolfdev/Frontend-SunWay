@@ -25,7 +25,7 @@ export default function ClienteModal() {
             <TextField fullWidth label="Código x" className="CodigoXInput"></TextField>
             <TextField fullWidth label="Código y" className="CodigoYInput"></TextField> 
           </div>
-          <button id="ButtonCriar" className="bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full" >Inserir Cliente</button>
+          <button id="ButtonCriar" className="bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full">Inserir Cliente</button>
         </FormControl>
         
       </div>

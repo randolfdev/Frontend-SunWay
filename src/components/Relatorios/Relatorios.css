@@ -205,14 +205,15 @@ span {
     align-items: center;
     justify-content: center;
     border-radius: 3%;
+    
 }
 
 .RelatorioModalWrapper {
     display: flex;
     flex-direction: column;
     background-color: #F6F7FA;
-    /* border-color: #F6F7FA; */
-    height: 80%;
+    border-color: #F6F7FA;
+    height: 90%;
     width: 80%;
 }
 
@@ -221,37 +222,42 @@ span {
     flex-direction: column !important;
 }
 
-.ExecutorInput {
-    max-height: 60px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
 .RelatorioInput {
-    max-height: 300px;
-    margin-bottom: 20px;
-    margin-top: 20px !important;
+    max-height: 60px;
+    margin-top: 4% !important;
 }
 
-.DataInput{
-    margin-top: 20px;
-    margin-bottom: 20px;
+.ISOCodeInput {
     max-height: 60px;
-    top: 10px;
+    margin-top: 4% !important;
+}
+
+.CodigoXInput {
+    max-height: 60px;
+    margin-top: 4% !important;
+}
+
+.CodigoYInput {
+    max-height: 60px;
+    margin-top: 4% !important;
+}
+
+.CodigoZInput {
+    max-height: 60px;
+    margin-top: 4% !important;
 }
 
 .RelatorioFormBody {
     display: flex;
     flex-direction: column;
-    height: 80%;
 }
 
 #NovaRelatorioTitle {
-    font-size:larger;
+    font-size: larger;
     color: #1D4ED8;
-    margin-bottom: 50px;
+    margin-bottom: 5%;
 }
 
 #ButtonCriar {
-    margin-top: 50px;
+    margin-top: 11%;
 }
