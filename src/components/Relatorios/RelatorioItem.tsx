@@ -56,7 +56,6 @@ export default function RelatorioItem({filterValue, showQuery}:RelatorioItemProp
                     <ul className="QueryFormatul"><AssignmentLateOutlinedIcon sx={{ fontSize: 12.5 }} className="QueryIcon" />Registros: <b>{val.Registros}</b></ul>
                     <ThemeProvider theme={theme}>
                       <IconButton className="ChartIcon" color="primary"><InsertChartOutlinedTwoToneIcon /></IconButton>
-
                       <IconButton className="ChartIcon" color="primary"><SettingsOutlinedIcon /></IconButton>
                     </ThemeProvider>
                   </li>

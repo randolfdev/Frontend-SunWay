@@ -22,11 +22,11 @@ export default function RelatorioModal() {
           <div className="RelatorioFormBody">
             <TextField fullWidth label="Nome do relatório" className="RelatorioInput"></TextField>
             <TextField fullWidth label="ISO Code" className="ISOCodeInput"></TextField>
-            <TextField fullWidth label="Codigo x" className="CodigoXInput"></TextField>
-            <TextField fullWidth label="Codigo y" className="CodigoYInput"></TextField>
-            <TextField fullWidth label="Codigo z" className="CodigoZInput"></TextField>
+            <TextField fullWidth label="Codigo x" className="RelatorioCodigoXInput"></TextField>
+            <TextField fullWidth label="Codigo y" className="RelatorioCodigoYInput"></TextField>
+            <TextField fullWidth label="Codigo z" className="RelatorioCodigoZInput"></TextField>
           </div>
-          <button id="ButtonCriar" className="bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full" >Criar Relatorio</button>
+          <button id="RelatorioButtonCriar" className="bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full" >Criar Relatorio</button>
         </FormControl>
         
       </div>

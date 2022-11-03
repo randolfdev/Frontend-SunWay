@@ -200,11 +200,11 @@ span {
 .ClienteModal {
     display: flex;
     background-color: #F6F7FA;
-    position: absolute;
-    left: 35%;
-    top: 15%;
-    width: 30%;
-    height: 65%;
+    position: relative;
+    left: 30%;
+    top: 10%;
+    width: 40%;
+    height: 70%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -212,45 +212,40 @@ span {
 }
 
 .ClienteModalWrapper {
-    display: flex;
+    display: block;
     flex-direction: column;
     background-color: #F6F7FA;
     border-color: #F6F7FA;
-    height: 90%;
-    width: 80%;
+    height: 100%;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
 }
 
-.MuiFormControl-root.css-1nrlq1o-MuiFormControl-root.ClienteForm {
-    display: flex !important;
-    flex-direction: column !important;
+.ClienteModalTitle {
+    height: 20%;
+    font-size: larger;
+    color: #1D4ED8;
 }
 
-.ClienteInput {
-    max-height: 60px;
-    margin-bottom: 5px;
-    margin-top: 2% !important;
+.ClienteInput{
+    margin-bottom: 1%;
 }
 
 .CodigoClienteInput {
-    max-height: 60px;
-    margin-bottom: 20px;
-    margin-top: 2% !important;
+    margin-bottom: 1%;
 }
 
 .InformacaoInput {
-    max-height: 60px;
-    margin-bottom: 20px;
-    margin-top: 2% !important;
+    margin-bottom: 1%;
 }
 
-.CodigoXInput {
-    max-height: 60px;
-    top: -8%;
+.ClienteCodigoXInput {
+    margin-bottom: 1%;
 }
 
-.CodigoYInput {
-    max-height: 60px;
-    top: -8%;
+.ClienteCodigoYInput {
+    margin-bottom:  1%;
 }
 
 .ClienteFormBody {
@@ -260,16 +255,10 @@ span {
 
 .CodigosFormBody {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
 }
 
-#NovaClienteTitle {
-    font-size: larger;
-    color: #1D4ED8;
-    margin-bottom: 20px;
-}
-
-#ButtonCriar Clientes {
-    margin-top: 1%;
+.ClienteModalButton {
+    height: 20%;
 }
