@@ -36,7 +36,6 @@
     margin-left: 15%;
     top: -10%;
     font-size: 0.85em;
-
 }
 
 .ConsultaItem {
@@ -161,9 +160,15 @@
     border-radius: 10px;
 }
 
-.ChartIcon {
+
+.InsertChartIcon {
     position: relative;
-    left: 130px;
+    left: 65%;
+}
+
+.SettingsIcon {
+    position: relative;
+    left: 65%;
 }
 
 .QueryFormatul {
@@ -173,7 +178,7 @@
 
 .QueryFormatli {
     position: relative;
-    right: 20px;
+    right: 100px;
 }
 
 .QueryIcon {

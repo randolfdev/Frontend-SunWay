@@ -12,16 +12,16 @@ interface ConsultaItemProps {
   showQuery: string | undefined
 }
 
-export default function ConsultaItem({filterValue, showQuery}:ConsultaItemProps ) {
-  const Consultas = [{ id: 1, Executor: "Usuário x", inicio: "10/04/2022", Registros: 7 }, { id: 2, Executor: "Usuário y", inicio: "10/26/2022", Registros: 3 }, { id: 3, Executor: "Usuário a", inicio: "11/04/2019", Registros:"10" }, { id: 4, Executor: "Usuário b", inicio: "11/27/2021", Registros: 43 }, { id: 5, Executor: "Usuário c", inicio: "10/11/2022", Registros: 20 }, {id: 6, Executor: "Usuário d", inicio: "12/11/2021", Registros: 14}]; 
+export default function ConsultaItem({ filterValue, showQuery }: ConsultaItemProps) {
+  const Consultas = [{ id: 1, Executor: "Usuário x", inicio: "10/04/2022", Registros: 7 }, { id: 2, Executor: "Usuário y", inicio: "10/26/2022", Registros: 3 }, { id: 3, Executor: "Usuário a", inicio: "11/04/2019", Registros: "10" }, { id: 4, Executor: "Usuário b", inicio: "11/27/2021", Registros: 43 }, { id: 5, Executor: "Usuário c", inicio: "10/11/2022", Registros: 20 }, { id: 6, Executor: "Usuário d", inicio: "12/11/2021", Registros: 14 }];
   let dateFilter: Date;
   if (filterValue > 0) {
-    dateFilter = new Date(new Date().setDate(new Date().getDate() - filterValue)); 
+    dateFilter = new Date(new Date().setDate(new Date().getDate() - filterValue));
   }
   else {
     dateFilter = new Date("10/10/1970");
   }
-  
+
   const theme = createTheme({
     palette: {
       primary: {
@@ -40,7 +40,7 @@ export default function ConsultaItem({filterValue, showQuery}:ConsultaItemProps 
       {Consultas.map((val, key) => {
         const dataInicio = Date.parse(val.inicio);
 
-        if(dataInicio > dateFilter.getTime()){
+        if (dataInicio > dateFilter.getTime()) {
           if (val.Executor.toLowerCase().includes(textoPesquisa.toLowerCase())) {
             return (
               <div key={key} className="ConsultaItem shadow-lg">
@@ -50,17 +50,13 @@ export default function ConsultaItem({filterValue, showQuery}:ConsultaItemProps 
                 </div>
                 <div className="ConsultaCorpo">
                   <li className="QueryFormatli">
-
                     <ul className="QueryFormatul"><AccountCircleOutlinedIcon sx={{ fontSize: 12.5 }} className="QueryIcon" />Executor: <b>{val.Executor}</b></ul>
                     <ul className="QueryFormatul"><CalendarMonthOutlinedIcon sx={{ fontSize: 12.5 }} className="QueryIcon" />Iniciada em: <b>{val.inicio}</b></ul>
                     <ul className="QueryFormatul"><AssignmentLateOutlinedIcon sx={{ fontSize: 12.5 }} className="QueryIcon" />Registros: <b>{val.Registros}</b></ul>
-                    <div className="ConsultaItemThemeProvider">
-                      <ThemeProvider theme={theme}>
-                        <IconButton className="ChartIcon" color="primary"><InsertChartOutlinedTwoToneIcon /></IconButton>
-
-                        <IconButton className="ChartIcon" color="primary"><SettingsOutlinedIcon /></IconButton>
-                      </ThemeProvider>
-                    </div>
+                    <ThemeProvider theme={theme}>
+                      <IconButton className="InsertChartIcon" color="primary"><InsertChartOutlinedTwoToneIcon /></IconButton>
+                      <IconButton className="SettingsIcon" color="primary"><SettingsOutlinedIcon /></IconButton>
+                    </ThemeProvider>
                   </li>
                 </div>
               </div>
