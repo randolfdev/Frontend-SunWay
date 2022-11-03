@@ -1,4 +1,4 @@
-import { Button, IconButton, FormControl, Box, MenuItem, Select, SelectChangeEvent, TextField, InputLabel } from "@mui/material";
+import { Button, IconButton, FormControl, Box, MenuItem, Select, SelectChangeEvent, TextField, InputLabel, Modal } from "@mui/material";
 import ManageSearchIcon from "@mui/icons-material/ManageSearch";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
@@ -6,7 +6,9 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 import React, { ReactNode, useState } from "react";
+import { useNavigate} from "react-router-dom";
 import "./Clientes.css";
+import ClientesModal from "./ClientesModal";
 
 const theme = createTheme({
   palette: {
@@ -26,21 +28,18 @@ interface NavbarProps {
   handleShowQueryState:(e: any ) => void
 }
 
-
-
 export default function Navbar({filterValue, handleFilterValue, handleSearchPress, handleShowQueryState}:NavbarProps) {
   const notificationIcon = true;
 
-  function criarExtracao(): void {
-    alert(filterValue);
-    alert(handleShowQueryState);
-    alert(handleSearchPress);
-    alert(handleFilterValue);
-
+  function criarClientes(): void {
+    setOpen(true);
   }
+  function handleClose(): void {
+    setOpen(false);
+  }
+  const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState<string | null>(null);
 
-  const [search, setSearch] = useState <string | null>(null);
-  console.log(filterValue);
   return (
     <div className="NavbarClientes">
       <strong>Clientes</strong>
@@ -77,11 +76,17 @@ export default function Navbar({filterValue, handleFilterValue, handleSearchPres
           /></IconButton>
         </ThemeProvider>
         {/* </FormControl > */}
-        <button onClick={criarExtracao} className=" bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full">
+        <button onClick={criarClientes} className=" bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full">
           <AddCircleOutlineIcon />
           &emsp;
-          Nova Clientes
+          Novo Cliente
         </button>
+        <Modal
+          open={open}
+          onClose={handleClose}
+        >
+          <ClientesModal />
+        </Modal>
         <div className="button-center">
           <ThemeProvider theme={theme}>
             <IconButton color="primary">{notificationIcon ? <NotificationsActiveIcon/> : <NotificationsNoneIcon/>}</IconButton>

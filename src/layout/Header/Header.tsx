@@ -18,7 +18,6 @@ const theme = createTheme({
   },
 });
 
-/*const navigate = useNavigate();*/
 
 const handleButtonInput = () => {
   alert("teste");

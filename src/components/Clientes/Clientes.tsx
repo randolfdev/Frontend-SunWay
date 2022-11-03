@@ -76,15 +76,15 @@ function Row(props: { row: ReturnType<typeof createData> }) {
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography variant="h6" gutterBottom component="div">
-                Histórico de Consultas
+                Histórico de Clientes
               </Typography>
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
                     <TableCell>Data</TableCell>
-                    <TableCell>Consulta</TableCell>
+                    <TableCell>Cliente</TableCell>
                     <TableCell align="right">Retorno</TableCell>
-                    <TableCell align="right">Tempo de Consulta</TableCell>
+                    <TableCell align="right">Tempo de Cliente</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
