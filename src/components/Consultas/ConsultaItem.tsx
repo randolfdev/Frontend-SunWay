@@ -53,11 +53,12 @@ export default function ConsultaItem({ filterValue, showQuery }: ConsultaItemPro
                     <ul className="QueryFormatul"><AccountCircleOutlinedIcon sx={{ fontSize: 12.5 }} className="QueryIcon" />Executor: <b>{val.Executor}</b></ul>
                     <ul className="QueryFormatul"><CalendarMonthOutlinedIcon sx={{ fontSize: 12.5 }} className="QueryIcon" />Iniciada em: <b>{val.inicio}</b></ul>
                     <ul className="QueryFormatul"><AssignmentLateOutlinedIcon sx={{ fontSize: 12.5 }} className="QueryIcon" />Registros: <b>{val.Registros}</b></ul>
-                    <ThemeProvider theme={theme}>
-                      <IconButton className="InsertChartIcon" color="primary"><InsertChartOutlinedTwoToneIcon /></IconButton>
-                      <IconButton className="SettingsIcon" color="primary"><SettingsOutlinedIcon /></IconButton>
-                    </ThemeProvider>
+
                   </li>
+                  <ThemeProvider theme={theme}>
+                    <IconButton className="InsertChartIcon" color="primary"><InsertChartOutlinedTwoToneIcon /></IconButton>
+                    <IconButton className="SettingsIcon" color="primary"><SettingsOutlinedIcon /></IconButton>
+                  </ThemeProvider>
                 </div>
               </div>
             );
