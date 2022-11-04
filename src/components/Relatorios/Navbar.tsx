@@ -1,11 +1,11 @@
-import { Button, IconButton, FormControl, Box, MenuItem, Select, SelectChangeEvent, TextField, InputLabel, Modal } from "@mui/material";
+import { IconButton, Box, MenuItem, Select, SelectChangeEvent, TextField, Modal } from "@mui/material";
 import ManageSearchIcon from "@mui/icons-material/ManageSearch";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
-import React, { ReactNode, useState } from "react";
+import React, { useState } from "react";
 import "./Relatorios.css";
 import RelatoriosModal from "./RelatoriosModal";
 import RelatoriosNotificationModal from "./RelatoriosNotificationModal";

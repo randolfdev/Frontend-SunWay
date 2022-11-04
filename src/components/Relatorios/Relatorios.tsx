@@ -1,6 +1,4 @@
-import React, { EventHandler, MouseEventHandler, useState } from "react";
-import Logout from "../Login/Logout";
-import RelatorioItem from "./RelatorioItem";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 import { SelectChangeEvent } from "@mui/material";
 import Paper from "@mui/material/Paper";

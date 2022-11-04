@@ -2,7 +2,7 @@ import React, { EventHandler, MouseEventHandler, useState } from "react";
 import Logout from "../Login/Logout";
 import ContaItem from "./ContaItem";
 import Navbar from "./Navbar";
-import { SelectChangeEvent } from "@mui/material";
+import { SelectChangeEvent, Box } from "@mui/material";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 
 export default function Contas() {
@@ -61,14 +61,14 @@ export default function Contas() {
 
     <div className="ContasWrapper">
       <Navbar filterValue={filterValue} handleFilterValue={handleFilterValue} handleSearchPress={handleSearchPress} handleShowQueryState={handleShowQueryState} />
-      <div className="ContasGrid">
+      <Box className="ContasGrid" boxShadow={5}>
         <DataGrid
           rows={rows}
           columns={columns}
           pageSize={7}
           rowsPerPageOptions={[5]}
         />
-      </div>
+      </Box>
     </div>
   );
 }

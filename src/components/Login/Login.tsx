@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Button, Input, Icon, FormControl, Box, SelectChangeEvent, TextField, InputLabel } from "@mui/material";
-import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
+import { Button, Box, TextField } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
