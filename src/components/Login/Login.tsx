@@ -47,20 +47,20 @@ export default function Login(props: any): JSX.Element {
   };
 
   return (
-    <Box className="box" boxShadow={8}>
+    <Box className="box" boxShadow={10}>
       <Box className="ItemsBox">
         <AccountCircle sx={{ fontSize: 100 }} className="LoginImage" color="primary" />
         <div className="LoginText LoginTextBorder">
-          <TextField fullWidth variant="outlined" placeholder="Login" id="Login" type="text" onChange={handleLoginText}
+          <TextField fullWidth variant="outlined" placeholder="Login" id="Login" type="text" size="small" onChange={handleLoginText}
           />
         </div>
         <div className="PasswordText PasswordTextBorder">
-          <TextField fullWidth placeholder="Password" id="password" type="password" onChange={handlePassword}
+          <TextField fullWidth placeholder="Password" id="password" type="password" size="small" onChange={handlePassword}
           />
         </div>
         <ThemeProvider theme={theme}>
           <Box className="LoginButtonBox">
-            <LoginButton id="LoginButton" type="button" variant="contained" color="primary" onClick={handleButtonInput}>
+            <LoginButton id="LoginButton" type="button" variant="contained"  color="primary" onClick={handleButtonInput}>
               Login
             </LoginButton>
           </Box>
