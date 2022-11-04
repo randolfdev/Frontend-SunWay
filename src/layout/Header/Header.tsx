@@ -1,7 +1,7 @@
 import React from "react";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import HexagonIcon from "@mui/icons-material/Hexagon";
-import { Button, IconButton } from "@mui/material";
+import { Button, IconButton, Menu, MenuItem } from "@mui/material";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
@@ -18,23 +18,49 @@ const theme = createTheme({
   },
 });
 
-
-const handleButtonInput = () => {
-  alert("teste");
-};
-
 export default function Header() {
+  const navigate = useNavigate();
+  const handleButtonInput = () => {
+    navigate("/login");
+  };
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <header>
       <div className="LogoIcon">
         <ThemeProvider theme={theme}>
-          <IconButton color="primary"><HexagonIcon sx={{ fontSize: 47 }} /></IconButton>
+          <IconButton onClick={handleClick} color="primary"><HexagonIcon sx={{ fontSize: 47 }} /></IconButton>
         </ThemeProvider>
       </div>
       <div className="HelpIcon">
         <ThemeProvider theme={theme}>
-          <IconButton size="small" color="primary" ><HelpOutlineIcon onClick={handleButtonInput}/></IconButton>
+          <IconButton size="small" color="primary" ><HelpOutlineIcon /></IconButton>
         </ThemeProvider>
+      </div>
+      <div>
+        <Menu
+          id="demo-positioned-menu"
+          aria-labelledby="demo-positioned-button"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+        >
+          <MenuItem onClick={handleButtonInput}>Trocar usuário</MenuItem>
+        </Menu>
       </div>
     </header>
   );

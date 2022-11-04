@@ -1,9 +1,8 @@
 import React from "react";
-import FaceIcon from "@mui/icons-material/Face";
+import { IconButton, Menu, MenuItem } from "@mui/material";
 import { SidebarData } from "./SidebarData";
 import "./Sidebar.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { IconButton } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 
@@ -18,23 +17,51 @@ const theme = createTheme({
   },
 });
 
-
 export default function Sidebar(): JSX.Element {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <div className="Sidebar">
       <div className="SidebarHeader">
-        <img src="logoincortec.jpeg" alt="placeholder" className="profilePic" />
+        <img src="logoincortec.jpg" alt="placeholder" className="profilePic" />
         <div className="SidebarHeaderLabel">
           <label className="CompanyName">Phillips</label>
           <label className="PersonName">Daniel</label>
         </div>
         <ThemeProvider theme={theme}>
-          <IconButton color= "primary"><ArrowDropDownIcon/></IconButton>
+          <IconButton onClick={handleClick} color="primary"><ArrowDropDownIcon /></IconButton>
         </ThemeProvider>
+        <div>
+          <Menu
+            id="demo-positioned-menu"
+            aria-labelledby="demo-positioned-button"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "left",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "left",
+            }}
+          >
+            <MenuItem onClick={handleClose}>Consultas</MenuItem>
+            <MenuItem onClick={handleClose}>Clientes</MenuItem>
+            <MenuItem onClick={handleClose}>Relatórios</MenuItem>
+          </Menu>
+        </div>
       </div>
       <ul className="SidebarList">
         {SidebarData.map((val, key) => {
-          return(
+          return (
             <li key={key} className="row" id={window.location.pathname == val.link ? "active" : ""} onClick={() => window.location.pathname = val.link}>
               {" "}
               <div id="Icon">{val.icon}</div>{" "}
@@ -42,7 +69,7 @@ export default function Sidebar(): JSX.Element {
                 {val.title}
               </div>
             </li>
-          );    
+          );
         })}
       </ul>
     </div>
