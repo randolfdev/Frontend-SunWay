@@ -36,6 +36,7 @@ export default function Navbar({ filterValue, handleFilterValue, handleSearchPre
   function criarExtracao(): void {
     setOpenCriar(true);
   }
+  
   function NotificacaoConsulta(): void {
     setOpenNotificacao(true);
   }
