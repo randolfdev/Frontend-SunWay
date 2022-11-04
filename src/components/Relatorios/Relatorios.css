@@ -192,3 +192,72 @@ span {
     font-weight: bold;
     color: rgb(29 78 216)
 }
+
+.RelatorioModal {
+    display: flex;
+    background-color: #F6F7FA;
+    position: absolute;
+    left: 35%;
+    top: 10%;
+    width: 30%;
+    height: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3%;
+    
+}
+
+.RelatorioModalWrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: #F6F7FA;
+    border-color: #F6F7FA;
+    height: 90%;
+    width: 80%;
+}
+
+.MuiFormControl-root.css-1nrlq1o-MuiFormControl-root.RelatorioForm {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.RelatorioInput {
+    max-height: 60px;
+    margin-top: 4% !important;
+}
+
+.ISOCodeInput {
+    max-height: 60px;
+    margin-top: 4% !important;
+}
+
+.RelatorioCodigoXInput {
+    max-height: 60px;
+    margin-top: 4% !important;
+}
+
+.RelatorioCodigoYInput {
+    max-height: 60px;
+    margin-top: 4% !important;
+}
+
+.RelatorioCodigoZInput {
+    max-height: 60px;
+    margin-top: 4% !important;
+}
+
+.RelatorioFormBody {
+    display: flex;
+    flex-direction: column;
+}
+
+#NovaRelatorioTitle {
+    font-size: larger;
+    color: #1D4ED8;
+    margin-bottom: 5%;
+}
+
+#RelatorioButtonCriar {
+    margin-top: 11%;
+}

@@ -18,7 +18,7 @@
 
 .ClientesTable {
     position: relative;
-    width: 95%; 
+    width: 95%;
     margin-top: 2%;
     border-radius: 100px;
 }
@@ -156,7 +156,7 @@
     position: relative;
     left: -40px;
     top: 5.575px;
-    background-color: rgb(29 78 216)!important;
+    background-color: rgb(29 78 216) !important;
 }
 
 .SearchButton:hover {
@@ -195,4 +195,70 @@ span {
     right: 25px;
     font-weight: bold;
     color: rgb(29 78 216)
+}
+
+.ClienteModal {
+    display: flex;
+    background-color: #F6F7FA;
+    position: relative;
+    left: 30%;
+    top: 10%;
+    width: 40%;
+    height: 70%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3%;
+}
+
+.ClienteModalWrapper {
+    display: block;
+    flex-direction: column;
+    background-color: #F6F7FA;
+    border-color: #F6F7FA;
+    height: 100%;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.ClienteModalTitle {
+    height: 20%;
+    font-size: larger;
+    color: #1D4ED8;
+}
+
+.ClienteInput{
+    margin-bottom: 1%;
+}
+
+.CodigoClienteInput {
+    margin-bottom: 1%;
+}
+
+.InformacaoInput {
+    margin-bottom: 1%;
+}
+
+.ClienteCodigoXInput {
+    margin-bottom: 1%;
+}
+
+.ClienteCodigoYInput {
+    margin-bottom:  1%;
+}
+
+.ClienteFormBody {
+    display: flex;
+    flex-direction: column;
+}
+
+.CodigosFormBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ClienteModalButton {
+    height: 20%;
 }

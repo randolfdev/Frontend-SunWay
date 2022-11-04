@@ -23,7 +23,7 @@ export default function Sidebar(): JSX.Element {
   return (
     <div className="Sidebar">
       <div className="SidebarHeader">
-        <img src="logoincortec.jpg" alt="placeholder" className="profilePic" />
+        <img src="logoincortec.jpeg" alt="placeholder" className="profilePic" />
         <div className="SidebarHeaderLabel">
           <label className="CompanyName">Phillips</label>
           <label className="PersonName">Daniel</label>
