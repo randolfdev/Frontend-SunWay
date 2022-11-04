@@ -9,6 +9,7 @@ import React, { ReactNode, useState } from "react";
 import { useNavigate} from "react-router-dom";
 import "./Clientes.css";
 import ClientesModal from "./ClientesModal";
+import ClienteNotificationModal from "./ClienteNotificationModal";
 
 const theme = createTheme({
   palette: {
@@ -32,12 +33,22 @@ export default function Navbar({filterValue, handleFilterValue, handleSearchPres
   const notificationIcon = true;
 
   function criarClientes(): void {
-    setOpen(true);
+    setOpenCriar(true);
   }
-  function handleClose(): void {
-    setOpen(false);
+  function NotificacaoCliente(): void {
+    setOpenNotificacao(true);
   }
-  const [open, setOpen] = useState(false);
+
+  function handleNotificacaoClose(): void {
+    setOpenNotificacao(false);
+  }
+
+  function handleCriarClose(): void {
+    setOpenCriar(false);
+  }
+
+  const [openCriar, setOpenCriar] = useState(false);
+  const [openNotificacao, setOpenNotificacao] = useState(false);
   const [search, setSearch] = useState<string | null>(null);
 
   return (
@@ -82,14 +93,20 @@ export default function Navbar({filterValue, handleFilterValue, handleSearchPres
           Novo Cliente
         </button>
         <Modal
-          open={open}
-          onClose={handleClose}
+          open={openCriar}
+          onClose={handleCriarClose}
         >
           <ClientesModal />
         </Modal>
         <div className="button-center">
           <ThemeProvider theme={theme}>
-            <IconButton color="primary">{notificationIcon ? <NotificationsActiveIcon/> : <NotificationsNoneIcon/>}</IconButton>
+            <IconButton onClick={NotificacaoCliente} color="primary">{notificationIcon ? <NotificationsActiveIcon/> : <NotificationsNoneIcon/>}</IconButton>
+            <Modal
+              open={openNotificacao}
+              onClose={handleNotificacaoClose}
+            >
+              <ClienteNotificationModal />
+            </Modal>
           </ThemeProvider>
         </div>
       </div>
