@@ -41,22 +41,16 @@ export default function ContaModal() {
       </Box>
       <Box className="ContaModalWrapper">
         <Box className="ContaInput">
-          <TextField fullWidth size="small" label="Nome da Conta"></TextField>
+          <TextField fullWidth size="small" label="Nome"></TextField>
         </Box>
         <Box className="ContasQLInput">
-          <TextField fullWidth size="small" label="Conta SQL" className="ContaInput"></TextField>
+          <TextField fullWidth size="small" label="Sobrenome" className="ContaInput"></TextField>
         </Box>
-        <Box className="DateContaInput">
-          <LocalizationProvider dateAdapter={AdapterMoment}>
-            <DesktopDatePicker
-              label="Date desktop"
-              inputFormat="MM/DD/YYYY"
-              value={data}
-              className="DataInput"
-              onChange={handleChange}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </LocalizationProvider>
+        <Box className="ContasQLInput">
+          <TextField fullWidth size="small" label="Idade" className="ContaInput"></TextField>
+        </Box>
+        <Box className="ContasQLInput">
+          <TextField fullWidth size="small" label="Email" className="ContaInput"></TextField>
         </Box>
       </Box>
       <ThemeProvider theme={theme}>

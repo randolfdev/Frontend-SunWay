@@ -1,11 +1,7 @@
 .ContasGrid {
-    grid-auto-rows: 1fr;
-    grid-template-columns: 23.5% 23.5% 23.5% 23.5%;
-    grid-template-rows: 27% 27% 27% 27%;
-    min-height: 70%;
-    width: 70%;
+    height: 70%;
+    width: 95%;
     margin-top: 2%;
-    gap: 2%;
 }
 
 .ContasWrapper {

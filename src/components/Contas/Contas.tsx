@@ -36,12 +36,12 @@ export default function Contas() {
     },
     {
       field: "fullName",
-      headerName: "Full name",
+      headerName: "Email",
       description: "This column has a value getter and is not sortable.",
       sortable: false,
-      width: 160,
+      width: 230,
       valueGetter: (params: GridValueGetterParams) =>
-        `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+        `${params.row.firstName || ""} ${params.row.lastName + "@gmail.com" || ""}`,
     },
   ];
 
@@ -50,8 +50,8 @@ export default function Contas() {
     { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
     { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
     { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-    { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-    { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
+    { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: 54 },
+    { id: 6, lastName: "Melisandre", firstName: "Edward", age: 15 },
     { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
     { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
     { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
@@ -61,13 +61,12 @@ export default function Contas() {
 
     <div className="ContasWrapper">
       <Navbar filterValue={filterValue} handleFilterValue={handleFilterValue} handleSearchPress={handleSearchPress} handleShowQueryState={handleShowQueryState} />
-      <div className="ContasGrid" style={{ height: 400, width: "100%" }}>
+      <div className="ContasGrid">
         <DataGrid
           rows={rows}
           columns={columns}
-          pageSize={5}
+          pageSize={7}
           rowsPerPageOptions={[5]}
-          checkboxSelection
         />
       </div>
     </div>
