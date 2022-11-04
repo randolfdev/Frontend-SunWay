@@ -8,6 +8,7 @@ import { ThemeProvider } from "@emotion/react";
 import React, { ReactNode, useState } from "react";
 import "./Consultas.css";
 import ConsultaModal from "./ConsultaModal";
+import ConsultaNotificationModal from "./ConsultaNotificationModal";
 
 const theme = createTheme({
   palette: {
@@ -33,12 +34,22 @@ export default function Navbar({ filterValue, handleFilterValue, handleSearchPre
   const notificationIcon = true;
 
   function criarExtracao(): void {
-    setOpen(true);
+    setOpenCriar(true);
   }
-  function handleClose(): void {
-    setOpen(false);
+  function NotificacaoConsulta(): void {
+    setOpenNotificacao(true);
   }
-  const [open, setOpen] = useState(false);
+
+  function handleNotificacaoClose(): void {
+    setOpenNotificacao(false);
+  }
+
+  function handleCriarClose(): void {
+    setOpenCriar(false);
+  }
+
+  const [openCriar, setOpenCriar] = useState(false);
+  const [openNotificacao, setOpenNotificacao] = useState(false);
   const [search, setSearch] = useState<string | null>(null);
 
 
@@ -85,14 +96,20 @@ export default function Navbar({ filterValue, handleFilterValue, handleSearchPre
           Nova Consulta
         </button>
         <Modal
-          open={open}
-          onClose={handleClose}
+          open={openCriar}
+          onClose={handleCriarClose}
         >
           <ConsultaModal />
         </Modal>
         <div className="button-center">
           <ThemeProvider theme={theme}>
-            <IconButton color="primary">{notificationIcon ? <NotificationsActiveIcon /> : <NotificationsNoneIcon />}</IconButton>
+            <IconButton onClick={NotificacaoConsulta} color="primary">{notificationIcon ? <NotificationsActiveIcon /> : <NotificationsNoneIcon />}</IconButton>
+            <Modal
+              open={openNotificacao}
+              onClose={handleNotificacaoClose}
+            >
+              <ConsultaNotificationModal />
+            </Modal>
           </ThemeProvider>
         </div>
       </div>

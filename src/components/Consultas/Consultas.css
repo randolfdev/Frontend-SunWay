@@ -266,3 +266,35 @@ span {
     margin-top: 25px;
     font-weight: bolder;
 }
+
+
+.NotificacaoConsultaModal {
+    display: flex;
+    background-color: #F6F7FA;
+    position: relative;
+    left: 30%;
+    top: 10%;
+    width: 40%;
+    height: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2%;
+}
+
+.NotificacaoConsultaModalTitle {
+    display: block;
+    flex-direction: column;
+    background-color: #F6F7FA;
+    border-color: #F6F7FA;
+    height: 100%;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+#NotificacaoConsultaTitle {
+    height: 20%;
+    font-size: larger;
+    color: #1D4ED8;
+}
