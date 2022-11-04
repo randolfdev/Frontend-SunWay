@@ -5,6 +5,7 @@ import "./Sidebar.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -24,6 +25,23 @@ export default function Sidebar(): JSX.Element {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const navigate = useNavigate();
+  const handleButtonInputConsultas = () => {
+    navigate("/Consultas");
+    setAnchorEl(null);
+  };
+  const handleButtonInputClientes = () => {
+    navigate("/Clientes");
+    setAnchorEl(null);
+  };
+  const handleButtonInputRelatorios = () => {
+    navigate("/Relatorios");
+    setAnchorEl(null);
+  };
+  const handleButtonInputContas = () => {
+    navigate("/Contas");
     setAnchorEl(null);
   };
   return (
@@ -53,9 +71,10 @@ export default function Sidebar(): JSX.Element {
               horizontal: "left",
             }}
           >
-            <MenuItem onClick={handleClose}>Consultas</MenuItem>
-            <MenuItem onClick={handleClose}>Clientes</MenuItem>
-            <MenuItem onClick={handleClose}>Relatórios</MenuItem>
+            <MenuItem onClick={handleButtonInputConsultas}>Consultas</MenuItem>
+            <MenuItem onClick={handleButtonInputClientes}>Clientes</MenuItem>
+            <MenuItem onClick={handleButtonInputRelatorios}>Relatórios</MenuItem>
+            <MenuItem onClick={handleButtonInputContas}>Contas</MenuItem>
           </Menu>
         </div>
       </div>

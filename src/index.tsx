@@ -12,6 +12,7 @@ import Consultas from "./components/Consultas/Consultas";
 import Clientes from "./components/Clientes/Clientes";
 import Relatorios from "./components/Relatorios/Relatorios";
 import Login from "./components/Login/Login";
+import Contas from "./components/Contas/Contas";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "Relatorios",
         element: <Relatorios />,
+      },
+      {
+        path: "Contas",
+        element: <Contas />,
       }
     ],
   },

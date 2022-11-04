@@ -21,12 +21,12 @@ const theme = createTheme({
   },
 });
 
-const ConsultaButton = styled(Button)({
+const ContaButton = styled(Button)({
   textTransform: "none",
   color: "white",
 });
 
-export default function ConsultaModal() {
+export default function ContaModal() {
   const [data, setValue] = React.useState<moment.Moment | null>(
     moment()
   );
@@ -35,18 +35,18 @@ export default function ConsultaModal() {
     setValue(newData);
   };
   return (
-    <Box className="ConsultaModal">
-      <Box className="ConsultaModalTitle">
-        <h1 id="ConsultaTitle">Inserir nova Consulta</h1>
+    <Box className="ContaModal">
+      <Box className="ContaModalTitle">
+        <h1 id="ContaTitle">Inserir nova Conta</h1>
       </Box>
-      <Box className="ConsultaModalWrapper">
-        <Box className="ConsultaInput">
-          <TextField fullWidth size="small" label="Nome da Consulta"></TextField>
+      <Box className="ContaModalWrapper">
+        <Box className="ContaInput">
+          <TextField fullWidth size="small" label="Nome da Conta"></TextField>
         </Box>
-        <Box className="ConsultaSQLInput">
-          <TextField fullWidth size="small" label="Consulta SQL" className="ConsultaInput"></TextField>
+        <Box className="ContasQLInput">
+          <TextField fullWidth size="small" label="Conta SQL" className="ContaInput"></TextField>
         </Box>
-        <Box className="DateConsultaInput">
+        <Box className="DateContaInput">
           <LocalizationProvider dateAdapter={AdapterMoment}>
             <DesktopDatePicker
               label="Date desktop"
@@ -60,8 +60,8 @@ export default function ConsultaModal() {
         </Box>
       </Box>
       <ThemeProvider theme={theme}>
-        <Box className="ConsultaModalButton">
-          <ConsultaButton size="small" disableRipple id="ConsultaButtonCriar" color="primary" variant="contained"><b>Inserir Consulta</b></ConsultaButton>
+        <Box className="ContaModalButton">
+          <ContaButton size="small" disableRipple id="ContaButtonCriar" color="primary" variant="contained"><b>Inserir Conta</b></ContaButton>
         </Box>
       </ThemeProvider>
     </Box>
