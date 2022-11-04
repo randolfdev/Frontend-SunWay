@@ -292,10 +292,12 @@ span {
     width: 90%;
     margin-right: 5%;
     margin-left: 5%;
+    margin-top: 2%;
 }
 
 #NotificacaoConsultaTitle {
     height: 20%;
     font-size: larger;
+    font-weight: 500;
     color: #1D4ED8;
 }
