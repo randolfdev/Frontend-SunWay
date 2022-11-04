@@ -19,6 +19,7 @@
 .ClientesTable {
     position: relative;
     width: 95%;
+    height: 100%;
     margin-top: 2%;
     border-radius: 100px;
 }
@@ -208,7 +209,7 @@ span {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 3%;
+    border-radius: 2%;
 }
 
 .ClienteModalWrapper {
@@ -229,23 +230,23 @@ span {
 }
 
 .ClienteInput{
-    margin-bottom: 1%;
+    margin-bottom: 2%;
 }
 
 .CodigoClienteInput {
-    margin-bottom: 1%;
+    margin-bottom: 2%;
 }
 
 .InformacaoInput {
-    margin-bottom: 1%;
+    margin-bottom: 2%;
 }
 
 .ClienteCodigoXInput {
-    margin-bottom: 1%;
+    margin-bottom: 2%;
 }
 
 .ClienteCodigoYInput {
-    margin-bottom:  1%;
+    margin-bottom:  2%;
 }
 
 .ClienteFormBody {
@@ -261,4 +262,21 @@ span {
 
 .ClienteModalButton {
     height: 20%;
+    width: 70%;
+}
+
+#ClienteButtonCriar {
+    height: 50%;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.ClienteModalTitle {
+    height: 20%;
+    width: 70%;
+}
+
+#ClienteTitle {
+    margin-top: 25px;
+    font-weight: bolder;
 }

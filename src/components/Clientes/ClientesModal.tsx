@@ -5,7 +5,26 @@ import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import moment from "moment";
 import React from "react";
 import FormControl from "@mui/material/FormControl";
-import Box from "@mui/material/Box";
+import { Button, Box, Modal } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@emotion/react";
+import { styled } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "rgb(29 78 216)",
+    },
+    secondary: {
+      main: "#ffffff",
+    },
+  },
+});
+
+const ClienteButton = styled(Button)({
+  textTransform:"none",
+  color:"white",
+});
 
 export default function ClienteModal() {
   const [data, setValue] = React.useState<moment.Moment | null>(
@@ -15,7 +34,7 @@ export default function ClienteModal() {
   return (
     <Box className="ClienteModal">
       <Box className="ClienteModalTitle">
-        Inserir novo cliente
+        <h1 id="ClienteTitle">Inserir novo cliente</h1>
       </Box>
       <Box className="ClienteModalWrapper">
         <Box className="ClienteInput">
@@ -34,9 +53,11 @@ export default function ClienteModal() {
           <TextField fullWidth size="small" label="Código y"></TextField>
         </Box>
       </Box>
-      <Box className="ClienteModalButton">
-        <button id="ClienteButtonCriar" className="bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full">Inserir Cliente</button>
-      </Box>
+      <ThemeProvider theme={theme}>
+        <Box className="ClienteModalButton">
+          <ClienteButton size="small" disableRipple id="ClienteButtonCriar" color="primary" variant="contained"><b>Inserir Cliente</b></ClienteButton>
+        </Box>
+      </ThemeProvider>
     </Box>
   );
 }

@@ -155,8 +155,8 @@ export default function CollapsibleTable() {
     <div className="RelatoriosWrapper">
       <Navbar filterValue={filterValue} handleFilterValue={handleFilterValue} handleSearchPress={handleSearchPress} handleShowQueryState={handleShowQueryState} />
       <div className="RelatorioTable">
-        <TableContainer component={Paper}>
-          <Table aria-label="collapsible table">
+        <TableContainer component={Paper} sx={{height:397}}>
+          <Table aria-label="collapsible table" sx={{height:"max-content"}}>
             <TableHead sx={{ "& .MuiTableCell-head": { backgroundColor: "rgb(29 78 216)", color: "white" }}}>
               <TableRow>
                 <TableCell />
