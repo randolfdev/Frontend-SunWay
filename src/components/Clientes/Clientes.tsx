@@ -16,20 +16,20 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 function createData(
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number,
-  price: number,
+  nomeCliente: string,
+  codCliente: number,
+  empresa: string ,
+  cnpj: number,
+  dataCadastro: number,
+  status: number,
 ) {
   return {
-    name,
-    calories,
-    fat,
-    carbs,
-    protein,
-    price,
+    nomeCliente,
+    codCliente,
+    empresa,
+    cnpj,
+    dataCadastro,
+    status,
     history: [
       {
         date: "2020-01-05",
@@ -62,12 +62,12 @@ function Row(props: { row: ReturnType<typeof createData> }) {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
-          {row.name}
+          {row.nomeCliente}
         </TableCell>
-        <TableCell align="right">{row.calories}</TableCell>
-        <TableCell align="right">{row.fat}</TableCell>
-        <TableCell align="right">{row.carbs}</TableCell>
-        <TableCell align="right">{row.protein}</TableCell>
+        <TableCell align="right">{row.codCliente}</TableCell>
+        <TableCell align="right">{row.empresa}</TableCell>
+        <TableCell align="right">{row.cnpj}</TableCell>
+        <TableCell align="right">{row.dataCadastro}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -94,7 +94,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                       <TableCell>{historyRow.customerId}</TableCell>
                       <TableCell align="right">{historyRow.amount}</TableCell>
                       <TableCell align="right">
-                        {Math.round(historyRow.amount * row.price * 100) / 100}
+                        {Math.round(historyRow.amount * row.status * 100) / 100}
                       </TableCell>
                     </TableRow>
                   ))}
@@ -109,11 +109,11 @@ function Row(props: { row: ReturnType<typeof createData> }) {
 }
 
 const rows = [
-  createData("Cliente Hospital A", 159, 6.0, 24, 4.0, 3.99),
-  createData("Cliente unidade B", 237, 9.0, 37, 4.3, 4.99),
-  createData("Cliente Hospital C", 262, 16.0, 24, 6.0, 3.79),
-  createData("Cliente unidade D", 305, 3.7, 67, 4.3, 2.5),
-  createData("Cliente Hospital E", 356, 16.0, 49, 3.9, 1.5),
+  createData("Cliente Hospital A", 159, "Empresa A", 24, 4.0, 3.99),
+  createData("Cliente unidade B", 237, "Empresa C", 37, 4.3, 4.99),
+  createData("Cliente Hospital C", 262, "Empresa B", 24, 6.0, 3.79),
+  createData("Cliente unidade D", 305, "Empresa D", 67, 4.3, 2.5),
+  createData("Cliente Hospital E", 356, "Empresa F", 49, 3.9, 1.5),
 ];
 
 export default function CollapsibleTable() {
