@@ -21,7 +21,7 @@ header::after{
     margin-top: 0.6%;
     left: 0;
     float: left;
-    
+    margin-left: 1.2%;
   }
   .SidebarIcon.Hidden{
     display: none;
