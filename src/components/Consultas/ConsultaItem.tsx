@@ -40,7 +40,7 @@ export default function ConsultaItem({ filterValue, showQuery }: ConsultaItemPro
         main: "rgb(29 78 216)",
       },
       secondary: {
-        main: "#ffffff",
+        main: "#000000",
       },
     }
   });
@@ -70,6 +70,7 @@ export default function ConsultaItem({ filterValue, showQuery }: ConsultaItemPro
                   <ThemeProvider theme={theme}>
                     <IconButton onClick={handleGraphModal} className="InsertChartIcon" color="primary"><InsertChartOutlinedTwoToneIcon /></IconButton>
                     <Modal
+                      BackdropProps={{style: {opacity: 0.2}}}
                       open={openGraphModal}
                       onClose={handleGraphModal}
                     >
@@ -79,6 +80,7 @@ export default function ConsultaItem({ filterValue, showQuery }: ConsultaItemPro
                   <ThemeProvider theme={theme}>
                     <IconButton onClick={handleConfigModal} className="SettingsIcon" color="primary"><SettingsOutlinedIcon /></IconButton>
                     <Modal
+                      BackdropProps={{style: {opacity: 0.2}}}
                       open={openConfigModal}
                       onClose={handleConfigModal}
                     >

@@ -8,7 +8,7 @@ import Sidebar from "./layout/Sidebar/Sidebar";
 import Header from "./layout/Header/Header";
 
 function App() {
-  const [sidebarOpen, setSideBarOpen] = useState(false);
+  const [sidebarOpen, setSideBarOpen] = useState(true);
   const handleViewSidebar = () => {
     setSideBarOpen(!sidebarOpen);
   };
