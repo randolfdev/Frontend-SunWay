@@ -1,4 +1,4 @@
-import { IconButton, Box, MenuItem, Select, SelectChangeEvent, TextField, Modal, Button } from "@mui/material";
+import { IconButton, Box, MenuItem, Select, SelectChangeEvent, TextField, Modal, Button, InputBase, Paper } from "@mui/material";
 import ManageSearchIcon from "@mui/icons-material/ManageSearch";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
@@ -29,11 +29,6 @@ interface NavbarProps {
   handleShowQueryState: (e: any) => void
 }
 
-const CriarButton = styled(Button)({
-  textTransform: "none",
-  color: "white",
-});
-
 export default function Navbar({ filterValue, handleFilterValue, handleSearchPress, handleShowQueryState }: NavbarProps) {
   const notificationIcon = true;
 
@@ -62,7 +57,7 @@ export default function Navbar({ filterValue, handleFilterValue, handleSearchPre
   return (
     <Box className="NavbarConsultas">
       <Box className="ConsultasTitleBox">
-        <strong>Consultas</strong>
+        Consultas
       </Box>
       <Box className="FiltroDataBox">
         <Select className="FiltroData"
@@ -81,21 +76,43 @@ export default function Navbar({ filterValue, handleFilterValue, handleSearchPre
         </Select>
       </Box>
       <Box className="SearchBox">
-        <TextField size="small" variant="outlined" value={search}
-          onChange={handleShowQueryState}
-        > </TextField>
-        <ThemeProvider theme={theme}>
-          <IconButton className="SearchButton" color="secondary" size="small" >
-            <ManageSearchIcon
-              fontSize="inherit"
-              onClick={handleSearchPress}
-            /></IconButton>
-        </ThemeProvider>
+        <Paper
+          className="SearchTextField"
+          variant="outlined"
+          sx={{ p: "2px 4px", display: "flex"}}
+        >
+          <InputBase
+            sx={{ ml: 1, flex: 1 }}
+            placeholder="Pesquisar"
+            inputProps={{ "aria-label": "Pesquisar" }}
+            onChange={handleShowQueryState}
+          />
+          <ThemeProvider theme={theme}>
+            <IconButton className="SearchButtonConsulta" color="secondary" size="small"
+              sx={{
+                "&:hover": { backgroundColor: "rgb(59 130 246)" },
+                backgroundColor: "rgb(29 78 216)",
+                borderRadius: "50%",
+              }} >
+              <ManageSearchIcon
+                onClick={handleSearchPress}
+              /></IconButton>
+          </ThemeProvider>
+        </Paper>
+
       </Box>
-      <Box>
-        <CriarButton variant="contained" startIcon={<AddCircleOutlineOutlinedIcon />} onClick={criarExtracao} >
+
+      <Box className="CreateQueryBox">
+        <IconButton className="CreateQueryButton" size="small" onClick={criarExtracao}
+          sx={{
+            color: "white",
+            "&:hover": { backgroundColor: "rgb(59 130 246)" },
+            backgroundColor: "rgb(29 78 216)",
+            borderRadius: "99px",
+          }}>
+          <AddCircleOutlineOutlinedIcon />
           Nova Consulta
-        </CriarButton>
+        </IconButton>
         <Modal
           open={openCriar}
           onClose={handleCriarClose}
@@ -103,19 +120,19 @@ export default function Navbar({ filterValue, handleFilterValue, handleSearchPre
           <ConsultaModal />
         </Modal>
       </Box>
-      <div className="button-center">
-        <Box>
-          <ThemeProvider theme={theme}>
-            <IconButton onClick={NotificacaoConsulta} color="primary">{notificationIcon ? <NotificationsActiveIcon /> : <NotificationsNoneIcon />}</IconButton>
-            <Modal
-              open={openNotificacao}
-              onClose={handleNotificacaoClose}
-            >
-              <ConsultaNotificationModal />
-            </Modal>
-          </ThemeProvider>
-        </Box>
-      </div>
+
+      <Box className="NotificationButtonBox">
+        <ThemeProvider theme={theme}>
+          <IconButton className="NotificationButton" onClick={NotificacaoConsulta} color="primary">{notificationIcon ? <NotificationsActiveIcon /> : <NotificationsNoneIcon />}
+          </IconButton>
+          <Modal
+            open={openNotificacao}
+            onClose={handleNotificacaoClose}
+          >
+            <ConsultaNotificationModal />
+          </Modal>
+        </ThemeProvider>
+      </Box>
     </Box>
   );
 }
