@@ -26,11 +26,11 @@ export default function Contas() {
 
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 70 },
-    { field: "firstName", headerName: "First name", width: 130 },
-    { field: "lastName", headerName: "Last name", width: 130 },
+    { field: "firstName", headerName: "Primeiro nome", width: 130 },
+    { field: "lastName", headerName: "Sobrenome", width: 130 },
     {
       field: "age",
-      headerName: "Age",
+      headerName: "Idade",
       type: "number",
       width: 90,
     },
@@ -62,7 +62,7 @@ export default function Contas() {
     <div className="ContasWrapper">
       <Navbar filterValue={filterValue} handleFilterValue={handleFilterValue} handleSearchPress={handleSearchPress} handleShowQueryState={handleShowQueryState} />
       <Box className="ContasGrid" boxShadow={5}>
-        <DataGrid
+        <DataGrid sx={{ "& .MuiDataGrid-columnHeaders": { backgroundColor: "rgb(29 78 216)", color: "white" }}}
           rows={rows}
           columns={columns}
           pageSize={7}
