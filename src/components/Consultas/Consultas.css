@@ -13,7 +13,6 @@
     display: block;
     position: relative;
     width: 100%;
-    margin-left: 2.2%;
 }
 
 .ConsultaItemId {
@@ -69,14 +68,13 @@
 }
 
 .NavbarConsultas {
-    right: 0;
     background-color: #F6F7FA;
     height: 50px;
     width: 100%;
     display: flex;
     padding-bottom: 5px;
-    align-items: baseline;
     margin-top: 5px;
+    justify-content: right;
 }
 
 .NavbarConsultasToolbar {
@@ -108,15 +106,15 @@
     height: 100%;
 }
 
-#FiltroConsultas {
-    width: 350px;
-}
-
 .NavbarConsultas strong {
     color: rgb(29 78 216);
     font-size: x-large;
     text-align: left;
     align-self: baseline;
+}
+
+.ConsultasTitleBox {
+    margin-right: 10%;
 }
 
 .NavbarConsultasSearch {
@@ -128,24 +126,32 @@
     width: 30%;
 }
 
+.FiltroDataBox {
+    margin-right: 5%;
+    width: 15%
+}
+
+.FiltroData {
+    width: 100%;
+    text-align: left;
+}
+
 .FilterBar {
     position: relative;
     width: 30px;
 }
 
-#SearchConsultas {
-    position: relative;
-}
-
-.SearchBar fieldset {
-    border-radius: 9999px;
+.SearchBox fieldset {
+    margin-right: 5%;
+    height: 100%;
+    border-radius: 20px;
 }
 
 .SearchButton {
     position: relative;
     left: -40px;
     top: 5.575px;
-    background-color: rgb(29 78 216)!important;
+    background-color: rgb(29 78 216) !important;
 }
 
 .SearchButton:hover {
@@ -225,7 +231,7 @@ span {
     color: #1D4ED8;
 }
 
-.ConsultaInput{
+.ConsultaInput {
     margin-bottom: 2%;
 }
 
