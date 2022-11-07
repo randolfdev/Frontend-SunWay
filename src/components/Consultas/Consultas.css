@@ -81,13 +81,13 @@
     font-size:30px;
     font-weight: bold;
     text-align: left;
-    width: 33%;
+    width: 41%;
 }
 
 .FiltroDataBox {
     position: relative;
     width: 20%;
-    text-align: center;
+    text-align: right;
 }
 
 .FiltroData fieldset {
@@ -101,13 +101,14 @@
 }
 
 .SearchBox {
-    width: 23%;
+    width: 20%;
     text-align: center;
 }
 
 .SearchTextField {
     height: 100%;
     width: 80%;
+    margin-left: 10%;
 }
 
 .SearchTextField.css-y2vkiz-MuiPaper-root {
@@ -125,7 +126,7 @@
 
 .CreateQueryBox{
     position: relative;
-    width: 20%;
+    width: 15%;
 }
 
 .CreateQueryButton{
