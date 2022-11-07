@@ -4,6 +4,7 @@ import HexagonIcon from "@mui/icons-material/Hexagon";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { createTheme } from "@mui/material/styles";
+import ViewSidebarIcon from "@mui/icons-material/ViewSidebar";
 import { ThemeProvider } from "@emotion/react";
 import "./Header.css";
 
@@ -18,7 +19,13 @@ const theme = createTheme({
   },
 });
 
-export default function Header() {
+
+interface SidebarProps {
+  isOpen : boolean;
+  toggleSidebar() : void;
+}
+
+export default function Header(props : SidebarProps) {
   const navigate = useNavigate();
   const handleButtonInput = () => {
     navigate("/login");
@@ -31,8 +38,15 @@ export default function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const sidebarIconClass = props.isOpen ? "SidebarIcon Hidden" : "SidebarIcon";
+
   return (
     <header>
+      <div className={sidebarIconClass}>
+        <ThemeProvider theme={theme}>
+          <IconButton onClick={props.toggleSidebar} color="primary" ><ViewSidebarIcon /></IconButton>  
+        </ThemeProvider>
+      </div>
       <div className="LogoIcon">
         <ThemeProvider theme={theme}>
           <IconButton onClick={handleClick} color="primary"><HexagonIcon sx={{ fontSize: 47 }} /></IconButton>

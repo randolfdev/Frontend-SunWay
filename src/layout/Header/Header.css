@@ -17,6 +17,16 @@ header::after{
     /* box-sizing: border-box; */
   }
 
+  .SidebarIcon {
+    margin-top: 0.6%;
+    left: 0;
+    float: left;
+    
+  }
+  .SidebarIcon.Hidden{
+    display: none;
+  }
+
 .LogoIcon {
     margin-top: -4px;
     float: right;

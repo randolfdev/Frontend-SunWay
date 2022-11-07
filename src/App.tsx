@@ -7,11 +7,11 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Sidebar from "./layout/Sidebar/Sidebar";
 import Header from "./layout/Header/Header";
 
-//Extremamente básico por enquanto, precisa adicionar
-//estilização, separar as funções por página, convenção, etc..
-
 function App() {
-  //TODO mover isso para TelaLogin
+  const [sidebarOpen, setSideBarOpen] = useState(false);
+  const handleViewSidebar = () => {
+    setSideBarOpen(!sidebarOpen);
+  };
 
   const [user, setUser] = useState<string | null>(null);
 
@@ -35,9 +35,9 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
       <div className="wrapper">
-        <Sidebar />
+        <Sidebar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
         <Outlet />
       </div>
     </>

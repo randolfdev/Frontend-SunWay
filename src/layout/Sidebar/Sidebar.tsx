@@ -18,12 +18,19 @@ const theme = createTheme({
   },
 });
 
-export default function Sidebar(): JSX.Element {
+interface SidebarProps {
+  isOpen : boolean;
+  toggleSidebar() : void;
+}
+
+export default function Sidebar(props : SidebarProps): JSX.Element {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+  const sidebarClass = props.isOpen ? "Sidebar open" : "Sidebar";
+
+  // const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -45,7 +52,7 @@ export default function Sidebar(): JSX.Element {
     setAnchorEl(null);
   };
   return (
-    <div className="Sidebar">
+    <div className={sidebarClass}>
       <div className="SidebarHeader">
         <img src="logoincortec.jpg" alt="placeholder" className="profilePic" />
         <div className="SidebarHeaderLabel">
@@ -53,7 +60,7 @@ export default function Sidebar(): JSX.Element {
           <label className="PersonName">Daniel</label>
         </div>
         <ThemeProvider theme={theme}>
-          <IconButton onClick={handleClick} color="primary"><ArrowDropDownIcon /></IconButton>
+          <IconButton onClick={props.toggleSidebar} color="primary"><ArrowDropDownIcon /></IconButton>
         </ThemeProvider>
         <div>
           <Menu
