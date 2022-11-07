@@ -4,9 +4,11 @@ import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined
 import AssignmentLateOutlinedIcon from "@mui/icons-material/AssignmentLateOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import InsertChartOutlinedTwoToneIcon from "@mui/icons-material/InsertChartOutlinedTwoTone";
-import { IconButton } from "@mui/material";
+import { IconButton, Modal } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
+import GraficoModal from "./ConsultaItemGraficoModal";
+import ConfigModal from "./ConsultaItemConfigModal";
 interface ConsultaItemProps {
   filterValue: number,
   showQuery: string | undefined
@@ -22,13 +24,23 @@ export default function ConsultaItem({ filterValue, showQuery }: ConsultaItemPro
     dateFilter = new Date("10/10/1970");
   }
 
+  const [openConfigModal, setOpenConfigModal] = useState<boolean>(false);
+  const [openGraphModal, setOpenGraphModal] = useState<boolean>(false);
+
+  function handleConfigModal() {
+    setOpenConfigModal(!openConfigModal);
+  }
+  function handleGraphModal() {
+    setOpenGraphModal(!openGraphModal);
+  }
+  
   const theme = createTheme({
     palette: {
       primary: {
         main: "rgb(29 78 216)",
       },
       secondary: {
-        main: "#000000",
+        main: "#ffffff",
       },
     }
   });
@@ -56,8 +68,22 @@ export default function ConsultaItem({ filterValue, showQuery }: ConsultaItemPro
 
                   </li>
                   <ThemeProvider theme={theme}>
-                    <IconButton className="InsertChartIcon" color="primary"><InsertChartOutlinedTwoToneIcon /></IconButton>
-                    <IconButton className="SettingsIcon" color="primary"><SettingsOutlinedIcon /></IconButton>
+                    <IconButton onClick={handleGraphModal} className="InsertChartIcon" color="primary"><InsertChartOutlinedTwoToneIcon /></IconButton>
+                    <Modal
+                      open={openGraphModal}
+                      onClose={handleGraphModal}
+                    >
+                      <GraficoModal />
+                    </Modal>
+                  </ThemeProvider>
+                  <ThemeProvider theme={theme}>
+                    <IconButton onClick={handleConfigModal} className="SettingsIcon" color="primary"><SettingsOutlinedIcon /></IconButton>
+                    <Modal
+                      open={openConfigModal}
+                      onClose={handleConfigModal}
+                    >
+                      <ConfigModal />
+                    </Modal>
                   </ThemeProvider>
                 </div>
               </div>
