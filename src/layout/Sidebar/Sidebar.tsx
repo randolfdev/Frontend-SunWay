@@ -2,7 +2,7 @@ import React from "react";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import { SidebarData } from "./SidebarData";
 import "./Sidebar.css";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
@@ -60,7 +60,7 @@ export default function Sidebar(props : SidebarProps): JSX.Element {
           <label className="PersonName">Daniel</label>
         </div>
         <ThemeProvider theme={theme}>
-          <IconButton onClick={props.toggleSidebar} color="primary"><ArrowDropDownIcon /></IconButton>
+          <IconButton onClick={props.toggleSidebar} color="primary"><MenuOpenIcon /></IconButton>
         </ThemeProvider>
         <div>
           <Menu

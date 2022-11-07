@@ -3,8 +3,8 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import HexagonIcon from "@mui/icons-material/Hexagon";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme } from "@mui/material/styles";
-import ViewSidebarIcon from "@mui/icons-material/ViewSidebar";
 import { ThemeProvider } from "@emotion/react";
 import "./Header.css";
 
@@ -44,7 +44,7 @@ export default function Header(props : SidebarProps) {
     <header>
       <div className={sidebarIconClass}>
         <ThemeProvider theme={theme}>
-          <IconButton onClick={props.toggleSidebar} color="primary" ><ViewSidebarIcon /></IconButton>  
+          <IconButton onClick={props.toggleSidebar} color="primary" ><MenuIcon /></IconButton>  
         </ThemeProvider>
       </div>
       <div className="LogoIcon">
