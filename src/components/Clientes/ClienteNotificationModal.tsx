@@ -10,7 +10,7 @@ import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 import { styled } from "@mui/material/styles";
 
-export default function ConsultaModal() {
+export default function ClienteModal() {
 
   return (
     <Box className="NotificacaoClienteModal">

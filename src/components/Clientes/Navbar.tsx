@@ -1,14 +1,11 @@
-import { Button, IconButton, FormControl, Box, MenuItem, Select, SelectChangeEvent, TextField, InputLabel, Modal } from "@mui/material";
-import ManageSearchIcon from "@mui/icons-material/ManageSearch";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import { IconButton, Box, MenuItem, Select, SelectChangeEvent, Modal, InputBase, Paper } from "@mui/material";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 import React, { useState } from "react";
 import "./Clientes.css";
 import ClientesModal from "./ClientesModal";
-import ClienteNotificationModal from "./ClienteNotificationModal";
 
 const theme = createTheme({
   palette: {
@@ -34,41 +31,36 @@ export default function Navbar({filterValue, handleFilterValue, handleSearchPres
   function criarClientes(): void {
     setOpenCriar(true);
   }
-  function NotificacaoCliente(): void {
-    setOpenNotificacao(true);
-  }
-
-  function handleNotificacaoClose(): void {
-    setOpenNotificacao(false);
-  }
 
   function handleCriarClose(): void {
     setOpenCriar(false);
   }
 
   const [openCriar, setOpenCriar] = useState(false);
-  const [openNotificacao, setOpenNotificacao] = useState(false);
   const [search, setSearch] = useState<string | null>(null);
 
   return (
-    <div className="NavbarClientes">
-      <strong>Clientes</strong>
-      <div className="NavbarClientesToolbar">
-        {/* <FormControl className="NavbarClientesSearch"> */}
-        {/* <InputLabel id="demo-simple-select-helper-label">Filtrar</InputLabel> */}
-
-        <Box
-          display="flex"
-          justifyContent="right"
-          alignItems="center"
-        >
-          <Select id="FiltroClientes"
+    <Box className="NavbarClientes">
+      <Box className="ClientesTitleBox">
+        Clientes
+      </Box>
+      <Box className="FiltroDataBox">
+        <ThemeProvider theme={theme}>
+          <Select className="FiltroData"
             value={filterValue}
             // label="Filtrar..."      
             displayEmpty
             onChange={handleFilterValue}
-            autoWidth={true}
-            className="FilterBar"
+            size="small"
+            variant="outlined"
+            sx={{
+              bgcolor: "white",
+              boxShadow: 3,
+              borderRadius: 10,
+              color: "primary.main",
+              fontWeight: 600,
+              ".MuiOutlinedInput-notchedOutline": { border: 0 }
+            }}
           >
             <MenuItem value={0}>Todos</MenuItem>
             <MenuItem value={7}>Últimos 7 dias</MenuItem>
@@ -76,39 +68,65 @@ export default function Navbar({filterValue, handleFilterValue, handleSearchPres
             <MenuItem value={180}>Últimos 6 meses</MenuItem>
             <MenuItem value={365}>Último ano</MenuItem>
           </Select>
-        </Box>
-        <TextField className="SearchBar" id="SearchClientes" variant="outlined" value = {search}
-          onChange={handleShowQueryState}
-        ></TextField>
-        <ThemeProvider theme={theme}>
-          <IconButton className="SearchButton" color="secondary" size="small" ><ManageSearchIcon 
-            onClick =  {handleSearchPress}
-          /></IconButton>
         </ThemeProvider>
-        {/* </FormControl > */}
-        <button onClick={criarClientes} className=" bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full">
-          <AddCircleOutlineIcon />
-          &emsp;
+      </Box>
+      <ThemeProvider theme={theme}>
+        <Box className="SearchBox">
+          <Paper
+            className="SearchTextField"
+            sx={{
+              bgcolor: "white",
+              p: "2px 4px",
+              display: "flex",
+              boxShadow: 3,
+              borderRadius: 10,
+            }}
+          >
+            <InputBase
+              sx={{
+                ml: 1,
+                flex: 1,
+                fontWeight: 600
+              }}
+              placeholder="Pesquisar"
+              onChange={handleShowQueryState}
+            />
+            <ThemeProvider theme={theme}>
+              <IconButton
+                className="SearchButtonCliente"
+                color="secondary"
+                sx={{
+                  "&:hover": { backgroundColor: "rgb(59 130 246)" },
+                  backgroundColor: "rgb(29 78 216)",
+                  borderRadius: "50%",
+                }} >
+                <SearchOutlinedIcon
+                  onClick={handleSearchPress}
+                /></IconButton>
+            </ThemeProvider>
+          </Paper>
+        </Box>
+      </ThemeProvider>
+      <Box className="CreateQueryBox">
+        <IconButton className="CreateQueryButton" size="small" onClick={criarClientes}
+          sx={{
+            color: "white",
+            "&:hover": { backgroundColor: "rgb(59 130 246)" },
+            backgroundColor: "rgb(29 78 216)",
+            borderRadius: "99px",
+            boxShadow: 3,
+            gap: 1
+          }}>
+          <AddCircleOutlineOutlinedIcon />
           Novo Cliente
-        </button>
+        </IconButton>
         <Modal
           open={openCriar}
           onClose={handleCriarClose}
         >
           <ClientesModal />
         </Modal>
-        <div className="button-center">
-          <ThemeProvider theme={theme}>
-            <IconButton onClick={NotificacaoCliente} color="primary">{notificationIcon ? <NotificationsActiveIcon/> : <NotificationsNoneIcon/>}</IconButton>
-            <Modal
-              open={openNotificacao}
-              onClose={handleNotificacaoClose}
-            >
-              <ClienteNotificationModal />
-            </Modal>
-          </ThemeProvider>
-        </div>
-      </div>
-    </div>
+      </Box>
+    </Box >
   );
 }
