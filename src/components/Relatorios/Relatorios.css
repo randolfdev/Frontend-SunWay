@@ -309,3 +309,10 @@ span {
     font-weight: 500;
     color: #1D4ED8;
 }
+
+.RelatorioTableComponent tr:last-child th {
+    border-bottom: 0px;
+}
+.RelatorioTableComponent tr:last-child td {
+    border-bottom: 0px;
+}
