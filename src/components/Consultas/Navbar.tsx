@@ -1,7 +1,5 @@
 import { IconButton, Box, MenuItem, Select, SelectChangeEvent, TextField, Modal, Button, InputBase, Paper } from "@mui/material";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
@@ -34,20 +32,11 @@ export default function Navbar({ filterValue, handleFilterValue, handleSearchPre
     setOpenCriar(true);
   }
 
-  function NotificacaoConsulta(): void {
-    setOpenNotificacao(true);
-  }
-
-  function handleNotificacaoClose(): void {
-    setOpenNotificacao(false);
-  }
-
   function handleCriarClose(): void {
     setOpenCriar(false);
   }
 
   const [openCriar, setOpenCriar] = useState(false);
-  const [openNotificacao, setOpenNotificacao] = useState(false);
   const [search, setSearch] = useState<string | null>(null);
 
 
@@ -64,12 +53,11 @@ export default function Navbar({ filterValue, handleFilterValue, handleSearchPre
             // label="Filtrar..."      
             displayEmpty
             onChange={handleFilterValue}
-            autoWidth={true}
             size="small"
             variant="outlined"
             sx={{
               bgcolor: "white",
-              boxShadow: 2,
+              boxShadow: 3,
               borderRadius: 10,
               color: "primary.main",
               fontWeight: 600,
@@ -92,15 +80,15 @@ export default function Navbar({ filterValue, handleFilterValue, handleSearchPre
               bgcolor: "white",
               p: "2px 4px",
               display: "flex",
-              boxShadow: 2,
-              borderRadius: 10
+              boxShadow: 3,
+              borderRadius: 10,
             }}
           >
             <InputBase
               sx={{
                 ml: 1,
                 flex: 1,
-                fontWeight: 600,
+                fontWeight: 600
               }}
               placeholder="Pesquisar"
               onChange={handleShowQueryState}
@@ -128,6 +116,7 @@ export default function Navbar({ filterValue, handleFilterValue, handleSearchPre
             "&:hover": { backgroundColor: "rgb(59 130 246)" },
             backgroundColor: "rgb(29 78 216)",
             borderRadius: "99px",
+            boxShadow: 3,
             gap: 1
           }}>
           <AddCircleOutlineOutlinedIcon />
