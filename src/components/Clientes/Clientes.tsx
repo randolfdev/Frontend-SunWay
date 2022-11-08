@@ -16,32 +16,18 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 function createData(
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number,
-  price: number,
+  nomeCliente: string,
+  empresa: string ,
+  cnpj: string,
+  dataCadastro: string,
+  status: string,
 ) {
   return {
-    name,
-    calories,
-    fat,
-    carbs,
-    protein,
-    price,
-    history: [
-      {
-        date: "2020-01-05",
-        customerId: "11091700",
-        amount: 3,
-      },
-      {
-        date: "2020-01-02",
-        customerId: "Anonymous",
-        amount: 1,
-      },
-    ],
+    nomeCliente,
+    empresa,
+    cnpj,
+    dataCadastro,
+    status,
   };
 }
 
@@ -52,68 +38,24 @@ function Row(props: { row: ReturnType<typeof createData> }) {
   return (
     <React.Fragment>
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
-        <TableCell>
-          <IconButton
-            aria-label="expand row"
-            size="small"
-            onClick={() => setOpen(!open)}
-          >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-          </IconButton>
-        </TableCell>
         <TableCell component="th" scope="row">
-          {row.name}
+          {row.nomeCliente}
         </TableCell>
-        <TableCell align="right">{row.calories}</TableCell>
-        <TableCell align="right">{row.fat}</TableCell>
-        <TableCell align="right">{row.carbs}</TableCell>
-        <TableCell align="right">{row.protein}</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ margin: 1 }}>
-              <Typography variant="h6" gutterBottom component="div">
-                Histórico de Clientes
-              </Typography>
-              <Table size="small" aria-label="purchases">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Data</TableCell>
-                    <TableCell>Cliente</TableCell>
-                    <TableCell align="right">Retorno</TableCell>
-                    <TableCell align="right">Tempo de Cliente</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {row.history.map((historyRow) => (
-                    <TableRow key={historyRow.date}>
-                      <TableCell component="th" scope="row">
-                        {historyRow.date}
-                      </TableCell>
-                      <TableCell>{historyRow.customerId}</TableCell>
-                      <TableCell align="right">{historyRow.amount}</TableCell>
-                      <TableCell align="right">
-                        {Math.round(historyRow.amount * row.price * 100) / 100}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Box>
-          </Collapse>
-        </TableCell>
+        <TableCell align="left">{row.empresa}</TableCell>
+        <TableCell align="left">{row.cnpj}</TableCell>
+        <TableCell align="center">{row.dataCadastro}</TableCell>
+        <TableCell align="right">{row.status}</TableCell>
       </TableRow>
     </React.Fragment>
   );
 }
 
 const rows = [
-  createData("Cliente Hospital A", 159, 6.0, 24, 4.0, 3.99),
-  createData("Cliente unidade B", 237, 9.0, 37, 4.3, 4.99),
-  createData("Cliente Hospital C", 262, 16.0, 24, 6.0, 3.79),
-  createData("Cliente unidade D", 305, 3.7, 67, 4.3, 2.5),
-  createData("Cliente Hospital E", 356, 16.0, 49, 3.9, 1.5),
+  createData("Daniel", "Teste 1", "xx.xxx.xxx/0001-XX", "22/08/21 18h33", "Ativo"),
+  createData("Enedir", "Teste 2", "xx.xxx.xxx/0001-XX", "22/08/21 18h33", "Ativo"),
+  createData("Diogo", "Teste 3", "xx.xxx.xxx/0001-XX", "22/08/21 18h33", "Inativo"),
+  // createData("Cliente unidade D", "Empresa D", 67, 4.3, 2.5),
+  // createData("Cliente Hospital E", "Empresa F", 49, 3.9, 1.5),
 ];
 
 export default function CollapsibleTable() {
@@ -153,21 +95,20 @@ export default function CollapsibleTable() {
     <div className="RelatoriosWrapper">
       <Navbar filterValue={filterValue} handleFilterValue={handleFilterValue} handleSearchPress={handleSearchPress} handleShowQueryState={handleShowQueryState} />
       <div className="RelatorioTable">
-        <TableContainer component={Paper} sx={{height:397}}>
-          <Table aria-label="collapsible table" sx={{height:"max-content"}}>
-            <TableHead sx={{ "& .MuiTableCell-head": { backgroundColor: "rgb(29 78 216)", color: "white" }}}>
-              <TableRow>
-                <TableCell />
-                <TableCell>Nome do Cliente</TableCell>
-                <TableCell align="right">Código do cliente</TableCell>
-                <TableCell align="right">Informação</TableCell>
-                <TableCell align="right">Código x</TableCell>
-                <TableCell align="right">Código y</TableCell>
+        <TableContainer component={Paper} sx={{ boxShadow:"0px 0px 0px 0px" , height:"auto", backgroundColor:"transparent"}}>
+          <Table className="ClienteTableRow" aria-label="collapsible table" sx={{ height:"max-content"}}>
+            <TableHead  sx={{ "& .MuiTableCell-head": {  backgroundColor: "white", color: "rgb(29 78 216)" }}}>
+              <TableRow className="shadow-md" sx={{borderRadius:"20px"}}>
+                <TableCell  sx={{borderRadius:"20px 0px 0px 20px"}}>Nome do Cliente</TableCell>
+                <TableCell  align="left">Empresa</TableCell>
+                <TableCell  align="left">CNPJ</TableCell>
+                <TableCell  align="center">Data de Cadastro</TableCell>
+                <TableCell  align="right" sx={{borderRadius:"0px 20px 20px 0px"}}>Status</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((row) => (
-                <Row key={row.name} row={row} />
+                <Row key={row.nomeCliente} row={row} />
               ))}
             </TableBody>
           </Table>
