@@ -10,19 +10,9 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 
-
-//O PLANO:
-//Navbar com pesquisa, filtro e nova extrção
-//div grid com as Relatorios
-//componente de item de Relatorios
-
-// interface dashboardProps {
-//   user: string,
-//   // logout: MouseEventHandler
-// }
-
 interface Column {
   id: "name" | "code" | "population" | "size" | "density";
+  borderRadius?: string;
   label: string;
   minWidth?: number;
   align?: "right";
@@ -30,7 +20,7 @@ interface Column {
 }
 
 const columns: readonly Column[] = [
-  { id: "name", label: "Nome do Relatório", minWidth: 170 },
+  { id: "name", borderRadius:"20px 0px 0px 20px" , label: "Nome do Relatório", minWidth: 170 },
   { id: "code", label: "ISO\u00a0Code", minWidth: 100 },
   {
     id: "population",
@@ -48,6 +38,7 @@ const columns: readonly Column[] = [
   },
   {
     id: "density",
+    borderRadius:"0px 20px 20px 0px",
     label: "Código z",
     minWidth: 170,
     align: "right",
@@ -130,54 +121,54 @@ export default function Relatorios() {
     <div className="RelatoriosWrapper">
       <Navbar filterValue={filterValue} handleFilterValue={handleFilterValue} handleSearchPress={handleSearchPress} handleShowQueryState={handleShowQueryState} />
       <div className="RelatorioTable">
-        <Paper sx={{ width: "100%", overflow: "hidden" }} elevation={10}>
-          <TableContainer sx={{ maxHeight: 600 }}>
-            <Table stickyHeader aria-label="sticky table">
-              <TableHead sx={{ "& .MuiTableCell-head": { backgroundColor: "rgb(29 78 216)", color: "white" }}}>
-                <TableRow>
-                  {columns.map((column) => (
-                    <TableCell
-                      key={column.id}
-                      align={column.align}
-                      style={{ minWidth: column.minWidth }}
-                    >
-                      {column.label}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {rows
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row) => {
-                    return (
-                      <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                        {columns.map((column) => {
-                          const value = row[column.id];
-                          return (
-                            <TableCell key={column.id} align={column.align}>
-                              {column.format && typeof value === "number"
-                                ? column.format(value)
-                                : value}
-                            </TableCell>
-                          );
-                        })}
-                      </TableRow>
-                    );
-                  })}
-              </TableBody>
-            </Table>
-          </TableContainer>
-          <TablePagination
-            rowsPerPageOptions={[5]}
-            component="div"
-            count={rows.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-        </Paper>
+        {/* <Paper sx={{ width: "100%", overflow: "hidden" }} elevation={10}> */}
+        <TableContainer component={Paper} sx={{ boxShadow:"0px 0px 0px 0px" , height:"auto", backgroundColor:"transparent", maxHeight: 600 }}>
+          <Table className="RelatorioTableComponent" stickyHeader aria-label="sticky table">
+            <TableHead className="shadow-md" sx={{ borderRadius:"20px", "& .MuiTableCell-head": { backgroundColor: "white", color: "rgb(29 78 216)" }}}>
+              <TableRow >
+                {columns.map((column) => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth, borderRadius: column.borderRadius }}
+                  >
+                    {column.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row) => {
+                  return (
+                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                      {columns.map((column) => {
+                        const value = row[column.id];
+                        return (
+                          <TableCell key={column.id} align={column.align}>
+                            {column.format && typeof value === "number"
+                              ? column.format(value)
+                              : value}
+                          </TableCell>
+                        );
+                      })}
+                    </TableRow>
+                  );
+                })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[5]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+        {/* </Paper> */}
       </div>
     </div>
 
