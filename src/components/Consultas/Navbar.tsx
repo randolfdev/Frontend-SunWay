@@ -1,5 +1,5 @@
 import { IconButton, Box, MenuItem, Select, SelectChangeEvent, TextField, Modal, Button, InputBase, Paper } from "@mui/material";
-import ManageSearchIcon from "@mui/icons-material/ManageSearch";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
@@ -8,8 +8,6 @@ import { ThemeProvider } from "@emotion/react";
 import React, { useState } from "react";
 import "./Consultas.css";
 import ConsultaModal from "./ConsultaModal";
-import ConsultaNotificationModal from "./ConsultaNotificationModal";
-import { styled } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
@@ -60,48 +58,69 @@ export default function Navbar({ filterValue, handleFilterValue, handleSearchPre
         Consultas
       </Box>
       <Box className="FiltroDataBox">
-        <Select className="FiltroData"
-          value={filterValue}
-          // label="Filtrar..."      
-          displayEmpty
-          onChange={handleFilterValue}
-          autoWidth={true}
-          size="small"
-        >
-          <MenuItem value={0}>Todos</MenuItem>
-          <MenuItem value={7}>Últimos 7 dias</MenuItem>
-          <MenuItem value={30}>Últimos 30 dias</MenuItem>
-          <MenuItem value={180}>Últimos 6 meses</MenuItem>
-          <MenuItem value={365}>Último ano</MenuItem>
-        </Select>
+        <ThemeProvider theme={theme}>
+          <Select className="FiltroData"
+            value={filterValue}
+            // label="Filtrar..."      
+            displayEmpty
+            onChange={handleFilterValue}
+            autoWidth={true}
+            size="small"
+            variant="outlined"
+            sx={{
+              bgcolor: "white",
+              boxShadow: 2,
+              borderRadius: 10,
+              color: "primary.main",
+              fontWeight: 600,
+              ".MuiOutlinedInput-notchedOutline": { border: 0 }
+            }}
+          >
+            <MenuItem value={0}>Todos</MenuItem>
+            <MenuItem value={7}>Últimos 7 dias</MenuItem>
+            <MenuItem value={30}>Últimos 30 dias</MenuItem>
+            <MenuItem value={180}>Últimos 6 meses</MenuItem>
+            <MenuItem value={365}>Último ano</MenuItem>
+          </Select>
+        </ThemeProvider>
       </Box>
-      <Box className="SearchBox">
-        <Paper
-          className="SearchTextField"
-          variant="outlined"
-          sx={{ p: "2px 4px", display: "flex"}}
-        >
-          <InputBase
-            sx={{ ml: 1, flex: 1 }}
-            placeholder="Pesquisar"
-            inputProps={{ "aria-label": "Pesquisar" }}
-            onChange={handleShowQueryState}
-          />
-          <ThemeProvider theme={theme}>
-            <IconButton className="SearchButtonConsulta" color="secondary" size="small"
+      <ThemeProvider theme={theme}>
+        <Box className="SearchBox">
+          <Paper
+            className="SearchTextField"
+            sx={{
+              bgcolor: "white",
+              p: "2px 4px",
+              display: "flex",
+              boxShadow: 2,
+              borderRadius: 10
+            }}
+          >
+            <InputBase
               sx={{
-                "&:hover": { backgroundColor: "rgb(59 130 246)" },
-                backgroundColor: "rgb(29 78 216)",
-                borderRadius: "50%",
-              }} >
-              <ManageSearchIcon
-                onClick={handleSearchPress}
-              /></IconButton>
-          </ThemeProvider>
-        </Paper>
-
-      </Box>
-
+                ml: 1,
+                flex: 1,
+                fontWeight: 600,
+              }}
+              placeholder="Pesquisar"
+              onChange={handleShowQueryState}
+            />
+            <ThemeProvider theme={theme}>
+              <IconButton
+                className="SearchButtonConsulta"
+                color="secondary"
+                sx={{
+                  "&:hover": { backgroundColor: "rgb(59 130 246)" },
+                  backgroundColor: "rgb(29 78 216)",
+                  borderRadius: "50%",
+                }} >
+                <SearchOutlinedIcon
+                  onClick={handleSearchPress}
+                /></IconButton>
+            </ThemeProvider>
+          </Paper>
+        </Box>
+      </ThemeProvider>
       <Box className="CreateQueryBox">
         <IconButton className="CreateQueryButton" size="small" onClick={criarExtracao}
           sx={{
@@ -109,6 +128,7 @@ export default function Navbar({ filterValue, handleFilterValue, handleSearchPre
             "&:hover": { backgroundColor: "rgb(59 130 246)" },
             backgroundColor: "rgb(29 78 216)",
             borderRadius: "99px",
+            gap: 1
           }}>
           <AddCircleOutlineOutlinedIcon />
           Nova Consulta
@@ -120,19 +140,6 @@ export default function Navbar({ filterValue, handleFilterValue, handleSearchPre
           <ConsultaModal />
         </Modal>
       </Box>
-
-      <Box className="NotificationButtonBox">
-        <ThemeProvider theme={theme}>
-          <IconButton className="NotificationButton" onClick={NotificacaoConsulta} color="primary">{notificationIcon ? <NotificationsActiveIcon /> : <NotificationsNoneIcon />}
-          </IconButton>
-          <Modal
-            open={openNotificacao}
-            onClose={handleNotificacaoClose}
-          >
-            <ConsultaNotificationModal />
-          </Modal>
-        </ThemeProvider>
-      </Box>
-    </Box>
+    </Box >
   );
 }

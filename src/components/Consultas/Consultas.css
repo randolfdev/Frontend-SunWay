@@ -81,7 +81,7 @@
     font-size:30px;
     font-weight: bold;
     text-align: left;
-    width: 41%;
+    width: 43%;
 }
 
 .FiltroDataBox {
@@ -90,14 +90,10 @@
     text-align: right;
 }
 
-.FiltroData fieldset {
-    border-radius: 99px;
-}
-
 .FiltroData {
     width: 75%;
     text-align: left;
-    height: 100%;
+    height: 100%;   
 }
 
 .SearchBox {
@@ -126,7 +122,8 @@
 
 .CreateQueryBox{
     position: relative;
-    width: 15%;
+    text-align: left;
+    width: 17%;
 }
 
 .CreateQueryButton{
@@ -134,23 +131,12 @@
     color: white;
     font-size: medium;
     font-weight: bold;
-    width: 100%;
-}
-
-.NotificationButtonBox {
-    text-align: center;
-    width: 4%;
-}
-
-.NotificationButton {
-    text-align: right;
-    height: 100%;
+    width: 90%;
 }
 
 .inputRouded {
     border-radius: 10px;
 }
-
 
 .InsertChartIcon {
     position: relative;
