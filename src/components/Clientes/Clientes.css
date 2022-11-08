@@ -315,3 +315,10 @@ span {
     font-weight: 500;
     color: #1D4ED8;
 }
+
+.ClienteTableRow tr:last-child th {
+    border-bottom: 0px;
+}
+.ClienteTableRow tr:last-child td {
+    border-bottom: 0px;
+}
